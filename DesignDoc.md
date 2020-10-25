@@ -1,6 +1,20 @@
 # Design Documentation
 ## Software Architecture
 ![](https://user-images.githubusercontent.com/22556115/95029827-ef37bf80-065f-11eb-8263-456efc5d0d2f.jpg)
+
+## CUJ
+### Start from App
+1. User clicks/adds a video URL
+2. URL pass to PlayVideoActivity via intent
+3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
+4. If user taps on the full view, it displays that reagen onto close-up.
+5. User finishes video, press return key, goes back to menu.
+### Start from sharing in Youtube
+1. User shares video and opens with app
+2. URL passed to YoutubeURLHandler to be processed, then sent to PlayVideoActivity
+3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
+4. If user taps on the full view, it displays that reagen onto close-up.
+5. User finishes video, press return key, goes back to Youtube.
 ## List of functions
 ### Current PlayVideoActivity
 - buildPlayer()
