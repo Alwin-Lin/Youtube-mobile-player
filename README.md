@@ -6,6 +6,10 @@ This player is a portotype of [Smart Content Composer](https://www.tdcommons.org
 2. Download the APK from [Releases](https://github.com/Alwin-Lin/Youtube-mobile-player/releases)
 3. Once the APK is downloaded, tap on the APK to install
 
+## Screenshots 
+### Playing an Youtube video
+![](https://user-images.githubusercontent.com/22556115/96386132-794a5280-114d-11eb-966d-2184cf72aa0a.png)
+
 ## CUJ
 ### Start from App
 1. User clicks/adds a video URL
