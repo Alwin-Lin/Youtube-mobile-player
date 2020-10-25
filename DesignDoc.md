@@ -1,10 +1,10 @@
 # Design Documentation
 ## Software Architecture
-Prototype architecture 
+### Prototype 
 
 ![](https://user-images.githubusercontent.com/22556115/97121986-a5cb1500-16df-11eb-9efb-335e0c0b0871.jpg)
 
-Planned architecture
+### Planned
 
 ![](https://user-images.githubusercontent.com/22556115/97121985-a5327e80-16df-11eb-94ca-0e3eaab03b4a.jpg)
 
