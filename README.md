@@ -38,6 +38,7 @@ This player is a portotype of [Smart Content Composer](https://www.tdcommons.org
 
 ## Design Documentation
 ### Software Architecture
+![](https://user-images.githubusercontent.com/22556115/95029827-ef37bf80-065f-11eb-8263-456efc5d0d2f.jpg)
 ### List of functions
 #### Current PlayVideoActivity
 - buildPlayer()
