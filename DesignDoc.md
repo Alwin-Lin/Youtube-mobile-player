@@ -2,11 +2,11 @@
 ## Software Architecture
 ### Prototype 
 
-![](https://user-images.githubusercontent.com/22556115/97121986-a5cb1500-16df-11eb-9efb-335e0c0b0871.jpg)
+![](https://user-images.githubusercontent.com/22556115/97123353-b338cd00-16e8-11eb-8308-64cc14e70d2f.jpg)
 
 ### Planned
 
-![](https://user-images.githubusercontent.com/22556115/97121985-a5327e80-16df-11eb-94ca-0e3eaab03b4a.jpg)
+![](https://user-images.githubusercontent.com/22556115/97123351-b2a03680-16e8-11eb-8228-48d159ae96eb.jpg)
 
 ## CUJ
 ### Start from App
