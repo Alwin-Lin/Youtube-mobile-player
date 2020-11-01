@@ -1,9 +1,8 @@
 # Design Documentation
 ## Software Architecture
-### Planned
 [CUJ](https://github.com/Alwin-Lin/Youtube-mobile-player/blob/main/README.md#cuj)
 
-![](https://user-images.githubusercontent.com/22556115/97812558-d3134800-1c36-11eb-8cba-85b766772f6c.jpg)
+![](https://user-images.githubusercontent.com/22556115/97812689-e4108900-1c37-11eb-8587-bd34516ab2da.jpg)
 
 ## List of functions
 ### Current PlayVideoActivity
