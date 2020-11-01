@@ -1,22 +1,10 @@
 # Design Documentation
 ## Software Architecture
 ### Planned
+[CUJ](https://github.com/Alwin-Lin/Youtube-mobile-player/blob/main/README.md#cuj)
 
 ![](https://user-images.githubusercontent.com/22556115/97812558-d3134800-1c36-11eb-8cba-85b766772f6c.jpg)
 
-## CUJ
-### Start from App
-1. User clicks/adds a video URL
-2. URL pass to PlayVideoActivity via intent
-3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
-4. If user taps on the full view, it displays that reagen onto close-up.
-5. User finishes video, press return key, goes back to menu.
-### Start from sharing in Youtube
-1. User shares video and opens with app
-2. URL passed to YoutubeURLHandler to be processed, then sent to PlayVideoActivity
-3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
-4. If user taps on the full view, it displays that reagen onto close-up.
-5. User finishes video, press return key, goes back to Youtube.
 ## List of functions
 ### Current PlayVideoActivity
 - buildPlayer()
