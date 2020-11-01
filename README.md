@@ -11,6 +11,20 @@ This player is a portotype of [Smart Content Composer](https://www.tdcommons.org
 - As a user, I want to add a new video to the playlist
   1. Launch Player_Prototype > Paste video URL > [Add values to listView]
 
+## CUJ
+### Start from App
+1. User clicks/adds a video URL
+2. URL pass to PlayVideoActivity via intent
+3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
+4. If user taps on the full view, it displays that reagen onto close-up.
+5. User finishes video, press return key, goes back to menu.
+### Start from sharing in Youtube
+1. User shares video and opens with app
+2. URL passed to YoutubeURLHandler to be processed, then sent to PlayVideoActivity
+3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
+4. If user taps on the full view, it displays that reagen onto close-up.
+5. User finishes video, press return key, goes back to Youtube.
+
 ## Installing
 1. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store
 2. Download the APK from [Releases](https://github.com/Alwin-Lin/Youtube-mobile-player/releases)
