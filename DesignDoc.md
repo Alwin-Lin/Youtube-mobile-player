@@ -2,7 +2,7 @@
 ## Software Architecture
 [CUJ](https://github.com/Alwin-Lin/Youtube-mobile-player/blob/main/README.md#cuj)
 
-![](https://user-images.githubusercontent.com/22556115/97812689-e4108900-1c37-11eb-8587-bd34516ab2da.jpg)
+![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
 ## List of functions
 ### Current PlayVideoActivity
