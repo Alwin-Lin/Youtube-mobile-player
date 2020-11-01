@@ -1,12 +1,8 @@
 # Design Documentation
 ## Software Architecture
-### Prototype 
-
-![](https://user-images.githubusercontent.com/22556115/97123353-b338cd00-16e8-11eb-8308-64cc14e70d2f.jpg)
-
 ### Planned
 
-![](https://user-images.githubusercontent.com/22556115/97123351-b2a03680-16e8-11eb-8228-48d159ae96eb.jpg)
+![](https://user-images.githubusercontent.com/22556115/97812558-d3134800-1c36-11eb-8cba-85b766772f6c.jpg)
 
 ## CUJ
 ### Start from App
