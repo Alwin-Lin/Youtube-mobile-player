@@ -4,6 +4,10 @@
 
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
+### For PlayList
+
+![](https://user-images.githubusercontent.com/22556115/98471920-52a79680-21a4-11eb-843f-2ba2041e1e48.jpg)
+
 ## List of functions
 ### Current PlayVideoActivity
 - buildPlayer()
