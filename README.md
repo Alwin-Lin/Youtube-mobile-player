@@ -1,4 +1,4 @@
-# Youtube-mobile-player MVP 1
+# Youtube-mobile-player MVP 1(WIP)
 This player is a portotype of [Smart Content Composer](https://www.tdcommons.org/dpubs_series/3670/). It improves video viewing experince on mobile phone by providing 2 seperate views: full and close-up.
 
 ## Features:
