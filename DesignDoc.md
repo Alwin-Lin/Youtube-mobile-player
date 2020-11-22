@@ -5,11 +5,16 @@
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
 ### PlaceHolder for User-List interaction
-![](https://user-images.githubusercontent.com/22556115/99206126-756f1780-276f-11eb-8afa-2b0a9020f29c.jpg)
+![](https://user-images.githubusercontent.com/22556115/99919255-2bd37f00-2cd1-11eb-9e31-dbee8ea1ca42.jpg)
+![](https://user-images.githubusercontent.com/22556115/99919260-2f670600-2cd1-11eb-948d-9f38e32e968e.jpg)
+### List and application architecture
+#### List
+![](https://user-images.githubusercontent.com/22556115/99919259-2e35d900-2cd1-11eb-8851-caf7a74bd2d3.jpg)
+#### App
+![](https://user-images.githubusercontent.com/22556115/99919257-2d04ac00-2cd1-11eb-96c7-da3db958ccdc.jpg)
 
-### For PlayList
-
-![](https://user-images.githubusercontent.com/22556115/98471920-52a79680-21a4-11eb-843f-2ba2041e1e48.jpg)
+## Logs
+Set Locat filter to info, and the whole process should all be there
 
 ## List of functions
 ### MainActivity
