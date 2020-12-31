@@ -49,7 +49,7 @@ steps:
 #
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-q', 'cp', '-r', 'app/build/outputs/apk/debug', 'gs://ytpobileplayer-artifact']
+  args: ['-q', 'cp', '-r', './app/build/outputs/apk/debug', 'gs://ytpobileplayer-artifact']
   waitFor: ['build']
 
   
