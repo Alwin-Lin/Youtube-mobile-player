@@ -21,45 +21,45 @@ steps:
 
 - name: 'gcr.io/contbuild-263903/android:29-ndk-r17b'
   id: build
-  args: ["./gradlew", "uberJar"]
+  args: ["./gradlew"]
   env:
   - 'TERM=dumb'
   - 'JAVA_TOOL_OPTIONS="-Xmx3g"'
   - 'GRADLE_USER_HOME=/build_cache/.gradle'
   - 'GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=32 -Dkotlin.incremental=false -Dorg.gradle.caching=true"'
   - 'BRANCH_NAME=$BRANCH_NAME'
-  dir: 'releaseParserProj'
+  dir: 'src'
 
 #
 # Run test
 #
-- name: 'gcr.io/contbuild-263903/android:29-ndk-r17b-jre11'
-  id: test
-  args: ["./gradlew", "test"]
-  env:
-  - 'TERM=dumb'
-  - 'JAVA_TOOL_OPTIONS="-Xmx3g"'
-  - 'JAVA_HOME=/usr/lib/jvm/jdk-11'
-  - 'GRADLE_USER_HOME=/build_cache/.gradle'
-  - 'GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=32 -Dkotlin.incremental=false -Dorg.gradle.caching=true"'
-  - 'BRANCH_NAME=$BRANCH_NAME'
-  dir: 'releaseParserProj'
+#- name: 'gcr.io/contbuild-263903/android:29-ndk-r17b-jre11'
+  #  id: test
+  #args: ["./gradlew", "test"]
+    #env:
+    #- 'TERM=dumb'
+  #- 'JAVA_TOOL_OPTIONS="-Xmx3g"'
+  #- 'JAVA_HOME=/usr/lib/jvm/jdk-11'
+  #- 'GRADLE_USER_HOME=/build_cache/.gradle'
+  #- 'GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=32 -Dkotlin.incremental=false -Dorg.gradle.caching=true"'
+  #- 'BRANCH_NAME=$BRANCH_NAME'
+  #dir: 'releaseParserProj'
 
 #
 # Save the Jar
 #
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-q', 'cp', '-r', 'releaseParserProj/build/libs/releaseParser.jar', 'gs://parser-jar-artifacts']
-  waitFor: ['test']
+  args: ['-q', 'cp', '-r', 'app/build/outputs/apk/debug', 'gs://ytpobileplayer-artifact']
+  waitFor: ['build']
 
   
 #
 # Save the test results
 #
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-q', 'cp', '-r', 'releaseParserProj/build/reports/tests/test/index.html', 'gs://parser-jar-artifacts']
-  waitFor: ['test']
+  #- name: 'gcr.io/cloud-builders/gsutil'
+  #args: ['-q', 'cp', '-r', 'releaseParserProj/build/reports/tests/test/index.html', 'gs://parser-jar-artifacts']
+  #waitFor: ['test']
 
 # Option
 #
