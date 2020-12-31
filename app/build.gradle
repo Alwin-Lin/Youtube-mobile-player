@@ -10,17 +10,7 @@ android {
 
     buildFeatures {
         viewBinding = true
-    }
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
-
-    dataBinding {
-        enabled = true
-        enabledForTests = true
+        dataBinding = true
     }
 
     defaultConfig {
@@ -79,9 +69,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
 
     implementation "androidx.room:room-runtime:$roomVersion"
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
-
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    androidTestImplementation 'junit:junit:4.12'
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
 
@@ -89,31 +78,6 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
     ktlint "com.pinterest:ktlint:$ktlintVersion"
-
-    // Dependencies for local unit tests
-    testImplementation "junit:junit:$junitVersion"
-
-    // AndroidX Test - Instrumented testing
-    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
-
-    androidTestImplementation 'androidx.test:rules:1.2.0'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test:rules:1.2.0'
-
-    // AndroidX Test - JVM testing
-    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
-    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
-    testImplementation "org.robolectric:robolectric:$robolectricVersion"
-    androidTestImplementation "org.robolectric:robolectric:$robolectricVersion"
-
-    // For yaml and google cloud build.
-    api 'org.apache.commons:commons-math3:3.6.1'
-    implementation 'com.google.guava:guava:29.0-jre'
 }
 
 
