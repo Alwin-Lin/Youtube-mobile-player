@@ -73,7 +73,6 @@ steps:
   - name: 'vol1'
     path: '/persistent_volume'
   args: ['cp', '/persistent_volume/app/build/outputs/apk/debug', 'gs://ytpobileplayer-artifact']
-  waitFor:['build']
 
 
 #
