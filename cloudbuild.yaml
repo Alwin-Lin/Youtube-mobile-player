@@ -21,7 +21,7 @@ steps:
 
 - name: 'gcr.io/ytmobileplayer/android:30-ndk-r17b'
   id: build
-  args: ["./gradlew"]
+  args: ["./gradlew", "assembleDebug"]
   env:
   - 'TERM=dumb'
   - 'JAVA_TOOL_OPTIONS="-Xmx3g"'
@@ -44,45 +44,13 @@ steps:
   #- 'BRANCH_NAME=$BRANCH_NAME'
   #dir: 'releaseParserProj'
 
-#
-# Vol
-#
-
-# Set a persistent volume according to /cloud-build/docs/build-config (search for volumes)
-- name: 'ubuntu'
-  volumes:
-  - name: 'vol1'
-    path: '/persistent_volume'
-  args: ['cp', '-a', '.', '/persistent_volume']
-
 
 #
-# Make APK
+# Save the APK
 #
-
-- name: 'gcr.io/cloud-builders/docker'
-  volumes:
-  - name: 'vol1'
-    path: '/persistent_volume'
-  args: ['run', '-v', 'vol1:/home/app', '--rm', 'gcr.io/ytmobileplayer/gradle', '/bin/sh', '-c', 'cd /home/app && ./gradlew clean assembleDebug']
-
-
-# Push the APK Output from vol1 to your GCS Bucket with Short Commit SHA.
 - name: 'gcr.io/cloud-builders/gsutil'
-  volumes:
-  - name: 'vol1'
-    path: '/persistent_volume'
-  args: ['cp', '/persistent_volume/app/build/outputs/apk/debug', 'gs://ytpobileplayer-artifact']
-
-
-#
-# Save the Jar
-#
-
-#- name: 'gcr.io/cloud-builders/gsutil'
- # args: ['-q', 'cp', '-r', './app/build/outputs/apk/debug', 'gs://ytpobileplayer-artifact']
-  #waitFor: ['build']
-
+  args: ['-q', 'cp', '-r', 'app/build/outputs/apk', 'gs://${_ARTIFACT_BUCKET}/$BRANCH_NAME-$BUILD_ID/']
+  waitFor: ['build']
   
 #
 # Save the test results
