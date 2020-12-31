@@ -21,7 +21,7 @@ steps:
 
 - name: 'gcr.io/ytmobileplayer/android:30-ndk-r17b'
   id: build
-  args: ["./gradlew", "buildAPK"]
+  args: ["./gradlew"]
   env:
   - 'TERM=dumb'
   - 'JAVA_TOOL_OPTIONS="-Xmx3g"'
