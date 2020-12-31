@@ -19,7 +19,7 @@ steps:
 # Build the project
 #
 
-- name: 'gcr.io/ytmobileplayer/android:28-ndk-r17b'
+- name: 'gcr.io/ytmobileplayer/android:30-ndk-r17b'
   id: build
   args: ["./gradlew", "buildAPK"]
   env:
