@@ -2,7 +2,7 @@
 ## Software Architecture
 CUJ
 
-![](https://github.com/Alwin-Lin/Youtube-mobile-player/blob/main/README.md#cuj)
+[!](https://github.com/Alwin-Lin/Youtube-mobile-player/blob/main/README.md#cuj)
 
 
 ## Logs
