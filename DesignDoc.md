@@ -33,3 +33,10 @@ Set Locat filter to info, and the whole process should all be there
 ### ViewListModle
   - Handels delettion of items
   
+## Continious building and continuious testing
+### What is it?
+A process using Google Cloud Platform to automaticly test and build new commits, outputs built APK and test reports.
+### What would I need?
+A google account
+Credit card for 
+### How 
