@@ -93,7 +93,7 @@ steps:
 # Save the test results
 #
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-q', 'cp', '-r', 'app/build/reports/tests', 'gs://${_ARTIFACT_BUCKET}']
+  args: ['-q', 'cp', '-r', 'app/build/reports/tests', 'gs://${_TEST_RESULT_BUCKET}']
   waitFor: ['test']
 
 
