@@ -1,7 +1,6 @@
 # Design Documentation
 ## Software Architecture
-![](https://github.com/Alwin-Lin/Youtube-mobile-player/blob/main/README.md#cuj)
-
+![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
 ## Logs
 Set Locat filter to info, and the whole process should all be there
