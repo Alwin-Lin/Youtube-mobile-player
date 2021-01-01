@@ -2,28 +2,16 @@
 This player is a portotype of [Smart Content Composer](https://www.tdcommons.org/dpubs_series/3670/). It improves video viewing experince on mobile phone by providing 2 seperate views: full and close-up.
 
 ## Features:
-- As a user, I want to play Youtube video on mobile phone.
-  1. Find a video in Youtube App > [Share] > [Player_Protype]
-  2. Change the close-up view position by tapping on the full view.
-- As a user, I want to play a video from the list
-  1. Launch Player_Prototype > select any URL
-  2. Change the close-up view position by tapping on the full view
-- As a user, I want to add a new video to the playlist
-  1. Launch Player_Prototype > Paste video URL > [Add values to listView]
-
-## CUJ
-### Start from App
-1. User clicks/adds a video URL
-2. URL pass to PlayVideoActivity via intent
-3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
-4. If user taps on the full view, it displays that reagen onto close-up.
-5. User finishes video, press return key, goes back to menu.
-### Start from sharing in Youtube
-1. User shares video and opens with app
-2. URL passed to YoutubeURLHandler to be processed, then sent to PlayVideoActivity
-3. BitmapOverlayVideoProcessor checks phone and video orentation and displays video.
-4. If user taps on the full view, it displays that reagen onto close-up.
-5. User finishes video, press return key, goes back to Youtube.
+### Add a video from Youtube
+  - Find a video in Youtube App > [Share] > [Player_Protype]
+### Add a video to the video list
+  - Launch Player_Prototype > Paste video URL > [Done]
+### Deleteing video from the video list
+  - Top right of each entry > [X]
+### Edit video title/url
+  - Long click on the entry you wish to edit > Edit > [Done] to save, [Cancel] to cancle
+### Play video (WIP) 
+  - Click on the video
 
 ## Installing
 1. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store
