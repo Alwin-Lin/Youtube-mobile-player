@@ -39,3 +39,5 @@ ext {
     constraintLayoutVersion = '2.0.2'
     ktlintVersion = '0.37.2'
 }
+
+apply plugin: 'android-reporting'
