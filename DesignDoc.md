@@ -2,6 +2,16 @@
 ## Software Architecture
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
+The current app can be devided into five main sections, video data, data storage, video list, and list ineractions. 
+ - Video data
+    - Defines the Video class
+ - Data storage
+    - Holds database and the interaciton with it. E.g. delete(), getAll()
+ - Video list
+    - Takes user inputs, converts into video data, then stores into Data storage.
+ - List ineractions (WIP)
+    - Controles the interface for adding a video.
+    
 ## Logs
 Set Locat filter to info, and the whole process should all be there
 
