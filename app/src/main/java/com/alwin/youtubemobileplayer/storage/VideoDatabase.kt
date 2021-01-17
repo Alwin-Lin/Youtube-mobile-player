@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.alwin.youtubemobileplayer.Video
+import com.alwin.youtubemobileplayer.data.Video
 
 /**
  * The underlying database where information about the videos is stored.

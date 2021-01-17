@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.alwin.youtubemobileplayer.Video
+import com.alwin.youtubemobileplayer.data.Video
 
 /**
  * The Data Access Object used to retrieve and store data from/to the underlying database.

@@ -64,15 +64,13 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
-    implementation "androidx.fragment:fragment:1.3.0-beta01"
+    implementation "androidx.fragment:fragment:1.3.0-rc01"
 
     implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
 
+    // Android room
     implementation "androidx.room:room-runtime:$roomVersion"
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-    androidTestImplementation 'junit:junit:4.12'
-    testImplementation 'junit:junit:4.12'
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
 
@@ -81,10 +79,20 @@ dependencies {
 
     ktlint "com.pinterest:ktlint:$ktlintVersion"
 
+    // Android and AndroidX test runners
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
     androidTestImplementation 'androidx.test:core:1.3.1-alpha02'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    androidTestImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13'
+
+    // Espresso Intents
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
 

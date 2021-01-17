@@ -1,12 +1,9 @@
-package com.alwin.youtubemobileplayer
+package com.alwin.youtubemobileplayer.videoList
 
 
-import android.content.Intent
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.alwin.youtubemobileplayer.data.Video
 import com.alwin.youtubemobileplayer.storage.VideoDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,9 +13,9 @@ import kotlinx.coroutines.launch
  * The id, name, and the discription will be passed to addData
  */
 
-class VideoEntryViewModel(private val videoDao: VideoDao) : ViewModel() {
+class VideoEditViewModel(private val videoDao: VideoDao) : ViewModel() {
 
-    private val TAG = "com.alwin.youtubemobileplayer"
+    private val TAG = "com.alwin.youtubemobileplayer.VideoEditViewModel"
     private var videoLiveData: LiveData<Video>? = null
 
     fun get(id: Long): LiveData<Video> {
@@ -29,14 +26,13 @@ class VideoEntryViewModel(private val videoDao: VideoDao) : ViewModel() {
         }
     }
 
-    fun addData(
+    fun addVideo(
             id: Long,
             name: String,
-            description: String,
+            url: String,
             setupNotification: (Long) -> Unit
     ) {
-        val video = Video(id, name, description)
-
+        val video = Video(id, name, url)
         CoroutineScope(Dispatchers.Main.immediate).launch {
             var actualId = id
 
@@ -47,7 +43,7 @@ class VideoEntryViewModel(private val videoDao: VideoDao) : ViewModel() {
             }
             setupNotification(actualId)
         }
-        Log.i(TAG, "VideoEntryModel: Adding video entry Name: $name, URL: $description")
+        Log.i(TAG, "VideoEntryModel: Adding video entry Name: $name, url: $url")
     }
 
     private suspend fun insert(video: Video): Long {
@@ -58,5 +54,19 @@ class VideoEntryViewModel(private val videoDao: VideoDao) : ViewModel() {
     private fun update(video: Video) = viewModelScope.launch(Dispatchers.IO) {
         videoDao.update(video)
         Log.i(TAG, "VideoEntryModel: List updated")
+    }
+}
+
+class ViewModelFactory(private val videoDao: VideoDao) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(VideoListViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return VideoListViewModel(videoDao) as T
+        } else if (modelClass.isAssignableFrom(VideoEditViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return VideoEditViewModel(videoDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

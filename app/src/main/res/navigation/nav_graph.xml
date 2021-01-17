@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/videoList"
-        android:name="com.alwin.youtubemobileplayer.VideoList"
+        android:name="com.alwin.youtubemobileplayer.videoList.VideoList"
         android:label="VideoList"
         tools:layout="@layout/video_list">
         <argument
@@ -16,13 +16,10 @@
         <action
             android:id="@+id/action_videoList_to_videoEntryDataFragment"
             app:destination="@id/videoEntryDialogFragment" />
-        <action
-            android:id="@+id/action_videoList_to_playVideoFragment"
-            app:destination="@id/playVideoFragment" />
     </fragment>
     <dialog
         android:id="@+id/videoEntryDialogFragment"
-        android:name="com.alwin.youtubemobileplayer.VideoEntryDialogFragment"
+        android:name="com.alwin.youtubemobileplayer.addVideo.VideoEditDialogFragment"
         android:label="VideoEntryDialogFragment">
         <deepLink app:uri="myapp://navdonutcreator.com/donutcreator" />
         <argument
@@ -30,9 +27,4 @@
             app:argType="long"
             android:defaultValue="-1L" />
     </dialog>
-    <fragment
-        android:id="@+id/playVideoFragment"
-        android:name="com.alwin.youtubemobileplayer.playVideoFragment"
-        android:label="fragment_play_video"
-        tools:layout="@layout/fragment_play_video" />
 </navigation>

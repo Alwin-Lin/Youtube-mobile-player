@@ -15,7 +15,6 @@
     <string name="static_shortcut_disabled_message">New Video Shortcut Disabled</string>
     <string name="video_name">Video Name</string>
     <string name="video_url">Video Url</string>
-    <string name="video_rating">Rating</string>
     <string name="delete">delete</string>
     <string name="defaultChannel">VideoTracker default channel</string>
     <string name="notificationDescription">Notifications from VideoTracker</string>
@@ -24,6 +23,7 @@
     <string name="videoName">videoName</string>
     <string name="videoPicture">Picture of video</string>
     <string name="name"></string>
+    <string name="add_video">Add Video</string>
     <string name="done">Done</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

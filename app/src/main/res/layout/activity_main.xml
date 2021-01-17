@@ -22,11 +22,11 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/add_video_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_margin="@dimen/add_video_button_margin"
         app:srcCompat="@drawable/add_video_to_list" />
     <include layout="@layout/content_main" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
