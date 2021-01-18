@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.alwin.youtubemobileplayer.R
 import com.alwin.youtubemobileplayer.YT_VIDEO_NAME
 import com.alwin.youtubemobileplayer.YT_VIDEO_URL
 import com.alwin.youtubemobileplayer.data.Video
@@ -59,6 +60,7 @@ class VideoList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = VideoListBinding.bind(view)
         val videoDao = VideoDatabase.getDatabase(requireContext()).videoDao()
+        Log.i(TAG, "create videoList")
         videoListViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
                 .get(VideoListViewModel::class.java)
 
@@ -67,6 +69,13 @@ class VideoList : Fragment() {
         }
         videoEditViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
                 .get(VideoEditViewModel::class.java)
+
+        if (activity?.intent?.hasExtra(YT_VIDEO_URL) == true) {
+            var intent = activity?.intent
+            var ytUrl = intent!!.getStringExtra(YT_VIDEO_URL)
+            var ytVideoName = intent!!.getStringExtra(YT_VIDEO_NAME)
+            addVideo(ytVideoName.toString(), ytUrl.toString())
+        }
 
         recyclerView.adapter = adapter
         binding.addVideoButton.setOnClickListener {
@@ -84,17 +93,6 @@ class VideoList : Fragment() {
         return VideoListBinding.inflate(inflater, container, false).root
     }
 
-    // Todo: Check for duplicates
-    override fun onResume() {
-        super.onResume()
-        var activityIntent = activity?.intent
-        if (activityIntent != null && activityIntent!!.hasExtra(YT_VIDEO_URL)){
-            Log.i(TAG, "Received intent $activityIntent")
-            onNewIntent(activityIntent)
-        }
-    }
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
         super.onActivityResult(requestCode, resultCode, intentData)
         /* Inserts video into viewModel. */
@@ -111,14 +109,7 @@ class VideoList : Fragment() {
         }
     }
 
-    private fun onNewIntent(intent: Intent){
-        var ytUrl: String = intent.getStringExtra(YT_VIDEO_URL).toString()
-        var ytName: String = intent.getStringExtra(YT_VIDEO_NAME).toString()
-        addVideo(ytName, ytUrl)
-        Log.i(TAG, "Received video. Name $ytName, url: $ytUrl")
-    }
-
-    private fun addVideo(videoName: String, videoUrl: String){
+    fun addVideo(videoName: String, videoUrl: String){
         videoEditViewModel.addVideo(
                 video?.id ?: 0,
                 videoName,

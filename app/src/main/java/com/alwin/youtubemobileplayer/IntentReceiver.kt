@@ -14,7 +14,6 @@ class IntentReceiver : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         when (intent?.action) {
             Intent.ACTION_SEND -> {
                 if (intent.type != null && "text/plain" == intent.type) {
@@ -28,10 +27,11 @@ class IntentReceiver : AppCompatActivity() {
                 Log.i(TAG, "Cannot handle intent $intent")
             }
         }
+        finish()
+
     }
 
     private fun handleActionSendIntent(intent: Intent) {
-
         // Get video Url
         var ytUrl: String = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
         Log.i(TAG, "Receive ACTION_SEND, url: $ytUrl")
@@ -49,5 +49,6 @@ class IntentReceiver : AppCompatActivity() {
         startActivity(processedYTIntent)
         // Todo: 3.Play Youtube video
         Log.i(TAG, "Todo: Play video")
+        finish()
     }
 }

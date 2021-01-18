@@ -30,9 +30,10 @@ class AddVideoActivity : AppCompatActivity() {
     }
 
 
-    /* The onClick action for the done button. Closes the activity and returns the new video name
-    and description as part of the intent. If the name or description are missing, the result is set
-    to cancelled. */
+    /*
+     If nothing is entered, close the activity
+     If the name or url is not empty, save it as a new video
+    */
 
     private fun addVideo() {
         val resultIntent = Intent()
