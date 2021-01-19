@@ -5,6 +5,13 @@
 ## Logs
 Use I/com.alwin.youtubemobileplayer as filter
 
+Sharing from Youtube, then deleteing entry
+
+![](https://user-images.githubusercontent.com/22556115/104980530-9811ec80-59bb-11eb-907f-1d7540f1a9d4.png)
+
+Manualy entering video, then deleting entry
+
+![](https://user-images.githubusercontent.com/22556115/104980527-96e0bf80-59bb-11eb-90fd-6bdf6e95b815.png)
 ## Project structure
 ### videoRecordUI
 - Handels adding and editing exsisting videos 
