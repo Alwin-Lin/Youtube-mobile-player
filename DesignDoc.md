@@ -13,6 +13,15 @@ Manualy entering video, then deleting entry
 
 ![](https://user-images.githubusercontent.com/22556115/104980527-96e0bf80-59bb-11eb-90fd-6bdf6e95b815.png)
 ## Project structure
+### MainActivity
+- Entry point of the app, main activity
+### IntentReceiver
+- Recives intent from Youtube, proccesses it, and sends to VideoList
+### videoListUI
+- VideoList
+  - Fragment class, sets up list and handels intent from addVideo and IntentReciver
+- VideoListAdapter
+  - Allows actions such as onEdit, onVideoClick
 ### videoRecordUI
 - Handels adding and editing exsisting videos 
 ### videoModel
@@ -20,15 +29,6 @@ Manualy entering video, then deleting entry
 - VideoDao defines functions that allows interaction with database
 - VideoDeleteViewModel deletes videos
 - VideoAdditionViewModel adds videos
-### videoListUI
-- VideoList
-  - Fragment class, sets up list and handels intent from addVideo and IntentReciver
-- VideoListAdapter
-  - Allows actions such as onEdit, onVideoClick
-### MainActivity
-- Entry point of the app, main activity
-### IntentReceiver
-- Recives intent from Youtube, proccesses it, and sends to VideoList
 
 ## Continious building and continuious testing
 ### What is it?
