@@ -3,36 +3,27 @@
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
 ## Logs
-Set Locat filter to info, and the whole process should all be there
+Use I/com.alwin.youtubemobileplayer as filter
 
-## List of functions
-### MainActivity
-- Handles intent coming from Youtube and sends bundle to VideoEntryDialogFragment
-### Notifier
-- Builds the list items
-### PlayVideoFragment
-- Placeholder, going to be replaced with a working videoPlayer
-### Video
-- Data class, contains the following
-  - id 
-  - name 
-  - url
-### VideoEntryDialogFragment
-- Set up the small popup window once the floating action button is clicked
-- Adds intent to list
-### VideoEntryViewModel
-- Interacts with LiveData<>
-### VideoList
-- Sets up the list view on entry, sets onClickListener to floating button
-### VideoListAdapter
-- Defines what goes into the the list
-  - videoId
-  - nameView
-  - url
-  - thumbnail
-### ViewListModle
-  - Handels delettion of items
-  
+## Project structure
+### addVideo
+- Handels onclick action of the button
+### data
+- Video class, requires a name an a url as input
+### sotrage
+- VideoDao defines functions that allows interaction with database
+### videoList
+- VideoEntryViewModel
+  - Called when new video needs to be added
+- VideoList
+  - Fragment class, sets up list and handels intent from addVideo and IntentReciver
+- VideoListViewModel
+  - Handels deleting video
+- VideoListAdapter
+  - Allows actions such as onEdit, onVideoClick
+- IntentReceiver
+  - Recives intent from Youtube, proccesses it, and sends to VideoList
+
 ## Continious building and continuious testing
 ### What is it?
 A process using Google Cloud Platform to automaticly test and build new commits, outputs built APK and test reports.
