@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer.storage
+package com.alwin.youtubemobileplayer.videoModel
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,7 +6,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.alwin.youtubemobileplayer.data.Video
 
 /**
  * The Data Access Object used to retrieve and store data from/to the underlying database.

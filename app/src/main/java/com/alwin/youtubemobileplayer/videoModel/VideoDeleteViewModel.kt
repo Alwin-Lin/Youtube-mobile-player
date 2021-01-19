@@ -1,17 +1,16 @@
-package com.alwin.youtubemobileplayer.videoList
+package com.alwin.youtubemobileplayer.videoListUI
 
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.alwin.youtubemobileplayer.data.Video
-import com.alwin.youtubemobileplayer.storage.VideoDao
+import com.alwin.youtubemobileplayer.videoModel.Video
+import com.alwin.youtubemobileplayer.videoModel.VideoDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class VideoListViewModel(private val videoDao: VideoDao) : ViewModel() {
+class VideoDeleteViewModel(private val videoDao: VideoDao) : ViewModel() {
     private val TAG = "com.alwin.youtubemobileplayer.VideoListModel"
 
     // Users of this ViewModel will observe changes to its donuts list to know when

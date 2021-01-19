@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.alwin.youtubemobileplayer.addVideo.AddVideoActivity
 
 const val YT_VIDEO_NAME = "com.alwin.youtubemobileplayer.VIDEO_NAME"
 const val YT_VIDEO_URL = "com.alwin.youtubemobileplayer.VIDEO_URL"
@@ -34,18 +33,18 @@ class IntentReceiver : AppCompatActivity() {
     private fun handleActionSendIntent(intent: Intent) {
         // Get video Url
         var ytUrl: String = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
-        Log.i(TAG, "Receive ACTION_SEND, url: $ytUrl")
+        Log.i(TAG, "Received intent with ACTION_SEND from $ytUrl")
 
         // Todo: 1.Convert Youtube Url
         var convYTName = "Todo: Name"
         var convYTUrl = "Todo: $ytUrl"
-        Log.i(TAG, "Video name: $convYTName, url: $convYTUrl")
+        Log.i(TAG, "Youtube video url convert complete, $convYTName, url: $convYTUrl")
 
         // Todo: 2.Add Url to video List
         val processedYTIntent = Intent(this, MainActivity()::class.java)
         processedYTIntent.putExtra(YT_VIDEO_NAME, convYTName)
         processedYTIntent.putExtra(YT_VIDEO_URL, convYTUrl)
-        Log.i(TAG, "Starting AddVideoActivity with $intent")
+        Log.i(TAG, "Intent sent, $intent")
         startActivity(processedYTIntent)
         // Todo: 3.Play Youtube video
         Log.i(TAG, "Todo: Play video")

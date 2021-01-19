@@ -1,10 +1,10 @@
-package com.alwin.youtubemobileplayer.videoList
+package com.alwin.youtubemobileplayer.videoListUI
 
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.alwin.youtubemobileplayer.data.Video
-import com.alwin.youtubemobileplayer.storage.VideoDao
+import com.alwin.youtubemobileplayer.videoModel.Video
+import com.alwin.youtubemobileplayer.videoModel.VideoDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,9 +13,9 @@ import kotlinx.coroutines.launch
  * The id, name, and the discription will be passed to addData
  */
 
-class VideoEditViewModel(private val videoDao: VideoDao) : ViewModel() {
+class VideoAdditionViewModel(private val videoDao: VideoDao) : ViewModel() {
 
-    private val TAG = "com.alwin.youtubemobileplayer.VideoEditViewModel"
+    private val TAG = "com.alwin.youtubemobileplayer.VideoAdditionViewModel"
     private var videoLiveData: LiveData<Video>? = null
 
     fun get(id: Long): LiveData<Video> {
@@ -43,29 +43,29 @@ class VideoEditViewModel(private val videoDao: VideoDao) : ViewModel() {
             }
             setupNotification(actualId)
         }
-        Log.i(TAG, "VideoEntryModel: Adding video entry Name: $name, url: $url")
+        Log.i(TAG, "New video added, name: $name, url: $url")
     }
 
     private suspend fun insert(video: Video): Long {
         return videoDao.insert(video)
-        Log.i(TAG, "VideoEntryModel: New video inserted")
+        Log.i(TAG, "New video inserted, video : $video")
     }
 
     private fun update(video: Video) = viewModelScope.launch(Dispatchers.IO) {
         videoDao.update(video)
-        Log.i(TAG, "VideoEntryModel: List updated")
+        Log.i(TAG, "List updated")
     }
 }
 
 class ViewModelFactory(private val videoDao: VideoDao) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(VideoListViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(VideoDeleteViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return VideoListViewModel(videoDao) as T
-        } else if (modelClass.isAssignableFrom(VideoEditViewModel::class.java)) {
+            return VideoDeleteViewModel(videoDao) as T
+        } else if (modelClass.isAssignableFrom(VideoAdditionViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return VideoEditViewModel(videoDao) as T
+            return VideoAdditionViewModel(videoDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

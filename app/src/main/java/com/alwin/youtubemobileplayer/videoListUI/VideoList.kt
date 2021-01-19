@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer.videoList
+package com.alwin.youtubemobileplayer.videoListUI
 
 import android.app.Activity
 import android.content.Intent
@@ -7,29 +7,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.alwin.youtubemobileplayer.R
 import com.alwin.youtubemobileplayer.YT_VIDEO_NAME
 import com.alwin.youtubemobileplayer.YT_VIDEO_URL
-import com.alwin.youtubemobileplayer.data.Video
-import com.alwin.youtubemobileplayer.addVideo.AddVideoActivity
-import com.alwin.youtubemobileplayer.addVideo.VIDEO_NAME
-import com.alwin.youtubemobileplayer.addVideo.VIDEO_URL
-import com.alwin.youtubemobileplayer.storage.VideoDatabase
+import com.alwin.youtubemobileplayer.videoModel.Video
+import com.alwin.youtubemobileplayer.videoRecordUI.AddVideoActivity
+import com.alwin.youtubemobileplayer.videoRecordUI.VIDEO_NAME
+import com.alwin.youtubemobileplayer.videoRecordUI.VIDEO_URL
+import com.alwin.youtubemobileplayer.videoModel.VideoDatabase
 import com.alwin.youtubemobileplayer.databinding.VideoListBinding
-import kotlinx.android.synthetic.main.video_item.*
 import kotlinx.android.synthetic.main.video_list.*
+import java.nio.file.Files.delete
 
 
 class VideoList : Fragment() {
     private val TAG: String = "com.alwin.youtubemobileplayer.videoList.VideoList"
-    private lateinit var videoListViewModel: VideoListViewModel
-    private lateinit var videoEditViewModel: VideoEditViewModel
+    private lateinit var videoDeleteViewModel: VideoDeleteViewModel
+    private lateinit var videoAdditionViewModel: VideoAdditionViewModel
     private val newVideoActivityRequestCode = 1
     var video: Video? = null
 
@@ -42,7 +39,7 @@ class VideoList : Fragment() {
             },
             onDelete = { video ->
                 NotificationManagerCompat.from(requireContext()).cancel(video.id.toInt())
-                videoListViewModel.delete(video)
+                videoDeleteViewModel.delete(video)
             },
 
             // todo: Make this send intent, should only contain the URL
@@ -60,20 +57,21 @@ class VideoList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = VideoListBinding.bind(view)
         val videoDao = VideoDatabase.getDatabase(requireContext()).videoDao()
-        Log.i(TAG, "create videoList")
-        videoListViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
-                .get(VideoListViewModel::class.java)
+        Log.i(TAG, "Video list created, listening for incoming intent")
+        videoDeleteViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
+                .get(VideoDeleteViewModel::class.java)
 
-        videoListViewModel.videos.observe(viewLifecycleOwner) { videos ->
+        videoDeleteViewModel.videos.observe(viewLifecycleOwner) { videos ->
             adapter.submitList(videos)
         }
-        videoEditViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
-                .get(VideoEditViewModel::class.java)
+        videoAdditionViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
+                .get(VideoAdditionViewModel::class.java)
 
         if (activity?.intent?.hasExtra(YT_VIDEO_URL) == true) {
             var intent = activity?.intent
             var ytUrl = intent!!.getStringExtra(YT_VIDEO_URL)
             var ytVideoName = intent!!.getStringExtra(YT_VIDEO_NAME)
+            Log.i(TAG,"Received $intent, adding to list")
             addVideo(ytVideoName.toString(), ytUrl.toString())
         }
 
@@ -101,16 +99,15 @@ class VideoList : Fragment() {
                 val videoName = data.getStringExtra(VIDEO_NAME)
                 val videoUrl = data.getStringExtra(VIDEO_URL)
                 addVideo(videoName.toString(), videoUrl.toString())
-                Log.i(TAG, "Added video, name: $videoName, url: $videoUrl")
+                Log.i(TAG, "Video added, name: $videoName, url: $videoUrl")
             }
-        } else {
-            Log.i(TAG, "Request code or result code mismatch. \nExpected $newVideoActivityRequestCode ${Activity.RESULT_OK}, got $requestCode $resultCode. \n" +
-                    "Exiting to video list")
+        } else if (resultCode == 0) {
+            Log.i(TAG, "Return key was pressed / Video name and url are empty")
         }
     }
 
-    fun addVideo(videoName: String, videoUrl: String){
-        videoEditViewModel.addVideo(
+    private fun addVideo(videoName: String, videoUrl: String){
+        videoAdditionViewModel.addVideo(
                 video?.id ?: 0,
                 videoName,
                 videoUrl,

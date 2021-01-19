@@ -1,0 +1,1 @@
+adb shell am start -n com.alwin.youtubemobileplayer/.MainActivity --es "com.alwin.youtubemobileplayer.VIDEO_NAME" "VideoName" --es "com.alwin.youtubemobileplayer.VIDEO_URL" "VideoUrl"

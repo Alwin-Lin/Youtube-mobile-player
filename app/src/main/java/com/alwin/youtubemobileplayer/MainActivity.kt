@@ -14,11 +14,10 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("LongLogTag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG, "Main activity created")
+        Log.i(TAG, "MainActivity created")
         val binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        Log.i(TAG,"got $intent")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

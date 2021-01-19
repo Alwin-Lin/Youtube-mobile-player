@@ -1,11 +1,11 @@
-package com.alwin.youtubemobileplayer.videoList
+package com.alwin.youtubemobileplayer.videoListUI
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alwin.youtubemobileplayer.R
-import com.alwin.youtubemobileplayer.data.Video
+import com.alwin.youtubemobileplayer.videoModel.Video
 import com.alwin.youtubemobileplayer.databinding.VideoItemBinding
 
 

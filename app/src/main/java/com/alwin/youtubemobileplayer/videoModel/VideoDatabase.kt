@@ -1,16 +1,15 @@
-package com.alwin.youtubemobileplayer.storage
+package com.alwin.youtubemobileplayer.videoModel
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.alwin.youtubemobileplayer.data.Video
 
 /**
  * The underlying database where information about the videos is stored.
  */
 @Database(entities = arrayOf(Video::class), version = 1)
-abstract class VideoDatabase : RoomDatabase() {
+abstract class  VideoDatabase : RoomDatabase() {
 
     abstract fun videoDao(): VideoDao
 

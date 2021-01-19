@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer.addVideo
+package com.alwin.youtubemobileplayer.videoRecordUI
 
 import android.app.Activity
 import android.content.Intent
@@ -7,8 +7,6 @@ import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.alwin.youtubemobileplayer.R
-import com.alwin.youtubemobileplayer.YT_VIDEO_NAME
-import com.alwin.youtubemobileplayer.YT_VIDEO_URL
 import com.google.android.material.textfield.TextInputEditText
 
 const val VIDEO_NAME = "name"
@@ -29,7 +27,6 @@ class AddVideoActivity : AppCompatActivity() {
         }
     }
 
-
     /*
      If nothing is entered, close the activity
      If the name or url is not empty, save it as a new video
@@ -39,13 +36,14 @@ class AddVideoActivity : AppCompatActivity() {
         val resultIntent = Intent()
         if (addVideoName.text.isNullOrEmpty() || addVideoUrl.text.isNullOrEmpty()) {
             setResult(Activity.RESULT_CANCELED, resultIntent)
+            Log.i(TAG, "Video name or url is empty, activity canceled")
         } else {
             val name = addVideoName.text.toString()
             val url = addVideoUrl.text.toString()
             resultIntent.putExtra(VIDEO_NAME, name)
             resultIntent.putExtra(VIDEO_URL, url)
             setResult(Activity.RESULT_OK, resultIntent)
-            Log.i(TAG,"Adding video, name: $name, url: $url, Activity result: ${Activity.RESULT_OK}, intent: $resultIntent")
+            Log.i(TAG,"Adding video, name: $name, url: $url, Activity result: ${Activity.RESULT_OK}")
         }
         finish()
     }

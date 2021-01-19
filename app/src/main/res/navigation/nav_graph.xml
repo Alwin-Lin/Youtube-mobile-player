@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/videoList"
-        android:name="com.alwin.youtubemobileplayer.videoList.VideoList"
+        android:name="com.alwin.youtubemobileplayer.videoListUI.VideoList"
         android:label="VideoList"
         tools:layout="@layout/video_list">
         <argument
@@ -19,7 +19,7 @@
     </fragment>
     <dialog
         android:id="@+id/videoEntryDialogFragment"
-        android:name="com.alwin.youtubemobileplayer.addVideo.VideoEditDialogFragment"
+        android:name="com.alwin.youtubemobileplayer.videoRecordUI.VideoEditDialogFragment"
         android:label="VideoEntryDialogFragment">
         <deepLink app:uri="myapp://navdonutcreator.com/donutcreator" />
         <argument

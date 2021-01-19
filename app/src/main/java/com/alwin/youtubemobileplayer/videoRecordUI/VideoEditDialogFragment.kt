@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer.addVideo
+package com.alwin.youtubemobileplayer.videoRecordUI
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
@@ -10,11 +10,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
-import com.alwin.youtubemobileplayer.data.Video
+import com.alwin.youtubemobileplayer.videoModel.Video
 import com.alwin.youtubemobileplayer.databinding.VideoEntryDialogBinding
-import com.alwin.youtubemobileplayer.storage.VideoDatabase
-import com.alwin.youtubemobileplayer.videoList.VideoEditViewModel
-import com.alwin.youtubemobileplayer.videoList.ViewModelFactory
+import com.alwin.youtubemobileplayer.videoModel.VideoDatabase
+import com.alwin.youtubemobileplayer.videoListUI.VideoAdditionViewModel
+import com.alwin.youtubemobileplayer.videoListUI.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /**
@@ -22,7 +22,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
  */
 
 class VideoEditDialogFragment : BottomSheetDialogFragment() {
-private lateinit var videoEditViewModel: VideoEditViewModel
+private lateinit var videoAdditionViewModel: VideoAdditionViewModel
 
     private enum class EditingState {
         NEW_VIDEO,
@@ -33,8 +33,8 @@ private lateinit var videoEditViewModel: VideoEditViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val videoDao = VideoDatabase.getDatabase(requireContext()).videoDao()
 
-        videoEditViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
-                .get(VideoEditViewModel::class.java)
+        videoAdditionViewModel = ViewModelProvider(this, ViewModelFactory(videoDao))
+                .get(VideoAdditionViewModel::class.java)
 
         val binding = VideoEntryDialogBinding.bind(view)
 
@@ -46,27 +46,28 @@ private lateinit var videoEditViewModel: VideoEditViewModel
                 else EditingState.NEW_VIDEO
 
         if (editingState == EditingState.EXISTING_VIDEO) {
-            videoEditViewModel.get(args.itemId).observe(viewLifecycleOwner) { videoItem ->
+            videoAdditionViewModel.get(args.itemId).observe(viewLifecycleOwner) { videoItem ->
                 binding.name.setText(videoItem.videoName)
                 binding.description.setText(videoItem.videoUrl)
                 video = videoItem
+                Log.i(TAG,"User started editing, target: $videoItem")
             }
         }
 
         // Exit out fragment
         binding.cancelButton.setOnClickListener {
             dismiss()
-            Log.i(TAG, "VideoEntryDialogFragment: Video Addition canceled")
+            Log.i(TAG, "Canceled editing")
         }
 
         // Update once the done button is clicked
         binding.doneButton.setOnClickListener {
-            videoEditViewModel.addVideo(
+            videoAdditionViewModel.addVideo(
                     video?.id ?: 0,
                     binding.name.text.toString(),
                     binding.description.text.toString(),
             ){}
-            Log.i(TAG, "VideoEntryDialogFragment: Adding user input video")
+            Log.i(TAG, "Finished editing")
             dismiss()
         }
     }
@@ -77,5 +78,6 @@ private lateinit var videoEditViewModel: VideoEditViewModel
             savedInstanceState: Bundle?
     ): View? {
         return VideoEntryDialogBinding.inflate(inflater, container, false).root
+        Log.i(TAG, "Starting up")
     }
 }
