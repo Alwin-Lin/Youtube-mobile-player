@@ -78,6 +78,5 @@ private lateinit var videoAdditionViewModel: VideoAdditionViewModel
             savedInstanceState: Bundle?
     ): View? {
         return VideoEntryDialogBinding.inflate(inflater, container, false).root
-        Log.i(TAG, "Starting up")
     }
 }

@@ -1,22 +1,32 @@
 package com.alwin.youtubemobileplayer
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.SparseArray
+import android.widget.Toast
+
+import at.huber.youtubeExtractor.VideoMeta;
+import at.huber.youtubeExtractor.YouTubeExtractor;
+import at.huber.youtubeExtractor.YtFile;
 
 const val YT_VIDEO_NAME = "com.alwin.youtubemobileplayer.VIDEO_NAME"
 const val YT_VIDEO_URL = "com.alwin.youtubemobileplayer.VIDEO_URL"
 
-class IntentReceiver : AppCompatActivity() {
-    private val TAG : String = "com.alwin.youtubemobileplayer.IntentReceiver"
+class IntentReceiver: AppCompatActivity() {
+    private val TAG: String = "com.alwin.youtubemobileplayer.IntentReceiver"
+    private lateinit var ytUrl: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         when (intent?.action) {
             Intent.ACTION_SEND -> {
-                if (intent.type != null && "text/plain" == intent.type) {
+                if (savedInstanceState== null && intent.type != null && "text/plain" == intent.type) {
                     handleActionSendIntent(intent)
+                } else if (savedInstanceState != null && ytUrl != null) {
+                    getYoutubeDownloadUrl(ytUrl)
                 }
                 else {
                     Log.i(TAG, "ACTION_SEND type is not text/plain")
@@ -27,27 +37,54 @@ class IntentReceiver : AppCompatActivity() {
             }
         }
         finish()
-
     }
 
     private fun handleActionSendIntent(intent: Intent) {
-        // Get video Url
         var ytUrl: String = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
-        Log.i(TAG, "Received intent with ACTION_SEND from $ytUrl")
+        if (ytUrl.contains("://youtu.be/") || ytUrl.contains("youtube.com/watch?v=")) {
+            Log.i(TAG, "Received intent with ACTION_SEND from $ytUrl")
+            getYoutubeDownloadUrl(ytUrl)
+            finish()
+        } else {
+            Toast.makeText(this, "URL mismatch, please share from Youtube", Toast.LENGTH_LONG)
+            Log.i(TAG, "Received URL $ytUrl, cannot process")
+        }
 
-        // Todo: 1.Convert Youtube Url
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private fun getYoutubeDownloadUrl(ytUrl: String) {
+        object : YouTubeExtractor(this) {
+            override fun onExtractionComplete(ytFiles: SparseArray<YtFile>?, vMeta: VideoMeta?) {
+                if (ytFiles != null) {
+                    var i = 0
+                    var itag: Int
+                    itag = ytFiles.keyAt(i)
+                    while (itag < ytFiles.size()) {
+                        itag = ytFiles.keyAt(i)
+                        i++
+                    }
+                    val downloadUrl = ytFiles[itag].url
+                    addUrlToList(downloadUrl)
+                } else {
+                    finish()
+                    return
+                }
+            }
+        }.extract(ytUrl, true, true)
+    }
+
+    fun addUrlToList(downloadURL: String){
+        // Get the name and url
         var convYTName = "Todo: Name"
-        var convYTUrl = "Todo: $ytUrl"
+        var convYTUrl = downloadURL
         Log.i(TAG, "Youtube video url convert complete, $convYTName, url: $convYTUrl")
 
-        // Todo: 2.Add Url to video List
+        // Start Video list fragment
         val processedYTIntent = Intent(this, MainActivity()::class.java)
         processedYTIntent.putExtra(YT_VIDEO_NAME, convYTName)
         processedYTIntent.putExtra(YT_VIDEO_URL, convYTUrl)
         Log.i(TAG, "Intent sent, $intent")
         startActivity(processedYTIntent)
-        // Todo: 3.Play Youtube video
-        Log.i(TAG, "Todo: Play video")
-        finish()
     }
 }

@@ -93,6 +93,18 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.3.0'
     androidTestImplementation 'androidx.test:rules:1.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    testImplementation 'androidx.test.ext:truth:' + rootProject.extTruthVersion;
+    testImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion;
+
+    androidTestImplementation 'androidx.test.ext:truth:' + rootProject.extTruthVersion;
+    androidTestImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion;
+
+    // For Youtube URL extraction
+    // Required dependency
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+    implementation "com.github.arkon:android-youtubeExtractor:1.1"
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
 }
 
 

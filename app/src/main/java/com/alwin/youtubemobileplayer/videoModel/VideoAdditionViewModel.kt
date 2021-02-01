@@ -48,7 +48,6 @@ class VideoAdditionViewModel(private val videoDao: VideoDao) : ViewModel() {
 
     private suspend fun insert(video: Video): Long {
         return videoDao.insert(video)
-        Log.i(TAG, "New video inserted, video : $video")
     }
 
     private fun update(video: Video) = viewModelScope.launch(Dispatchers.IO) {
