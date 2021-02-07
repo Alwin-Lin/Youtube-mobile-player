@@ -3,18 +3,26 @@
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
 ## User journey
-- Select video from Youtube
-  - Youtube,[share] > Video plays > App exits out to the video list
-- Select video from list
-  - Click on a video > video plays > App exits out to the video list
-- Add video to list
-  - Click on bottom right button > Enter name and url > [Done] > App exits to video list
-- Edit video on list
-  - Long click on video > edit > [Done] > Back to video list
-- Delete video on list 
-  - Click on [X] > Video deleted
+As a user, I want to: 
+1. Play a Youtube Video
+  - In Youtube app > [share] > Video plays and the video is saved in the play list
+2. Play video from the video list
+  - In the video list > Click on a video > video plays
+3. Manage video list
+  3.1 Add
+    - In the video list > Click on bottom right button > Enter name and url > [Done]
+  3.2 Edit
+    - In the video list > Long click on video > edit > [Done] >
+  3.3 Delete
+    - In the video list > Click on [X] > Video deleted
+4. Change video playback expirence
+ToDo: Add in table 
+  4.1 Landscape video playback
+  4.2 portrait video playback
+  4.3 Change close-up central point
+    
   
-## User flow
+## Code flow
 - Select video from Youtube
   - Youtube [Share] > IntentReciver recives and processes url > IntentReciver sends url to VideoList and PlayVideoActivity via intent > VideoList calls addVideo() > PlayVideoActivity takes url, builds mediaSource, plays video > Exit out to video list
 - Select video from list
@@ -28,6 +36,8 @@
   
 ## Logs
 Use I/com.alwin.youtubemobileplayer as filter
+
+Todo: Run app according to user journy, coppy and paste here.
 
 Sharing from Youtube, then deleteing entry
 
