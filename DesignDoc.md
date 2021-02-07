@@ -24,7 +24,7 @@
 - Manualy add video to list
   - Add video action button clicked > VideoList sends intent, starts AddVideoActivity > User input name and url > If both are not empty, AddVideoActivity sends intent back to VideoList and exits > VideoList calls addVideo() > Video is added
 - Delete video on list
-  - [X] is clicked > videoDeleteViewModel.delete() called in VideoList > Video deleted
+  - The [X] button is clicked > videoDeleteViewModel.delete() called in VideoList > Video deleted
   
 ## Logs
 Use I/com.alwin.youtubemobileplayer as filter
