@@ -2,6 +2,30 @@
 ## Software Architecture
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
+## User journey
+- Select video from Youtube
+  - Youtube,[share] > Video plays > App exits out to the video list
+- Select video from list
+  - Click on a video > video plays > App exits out to the video list
+- Add video to list
+  - Click on bottom right button > Enter name and url > [Done] > App exits to video list
+- Edit video on list
+  - Long click on video > edit > [Done] > Back to video list
+- Delete video on list 
+  - Click on [X] > Video deleted
+  
+## User flow
+- Select video from Youtube
+  - Youtube [Share] > IntentReciver recives and processes url > IntentReciver sends url to VideoList and PlayVideoActivity via intent > VideoList calls addVideo() > PlayVideoActivity takes url, builds mediaSource, plays video > Exit out to video list
+- Select video from list
+  - Clicks on a video > VideoList sends intent to start PlayVideoActivity > Video plays > Exit out to video list
+- Edit video on list
+  - Long click > VideoEditDialogFragment called > Check if video name or url is altered > If altered make changes, if not Exit out to video list
+- Manualy add video to list
+  - Add video action button clicked > VideoList sends intent, starts AddVideoActivity > User input name and url > If both are not empty, AddVideoActivity sends intent back to VideoList and exits > VideoList calls addVideo() > Video is added
+- Delete video on list
+  - [X] is clicked > videoDeleteViewModel.delete() called in VideoList > Video deleted
+  
 ## Logs
 Use I/com.alwin.youtubemobileplayer as filter
 
