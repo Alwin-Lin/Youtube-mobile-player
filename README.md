@@ -2,17 +2,9 @@
 This player is a portotype of [Smart Content Composer](https://www.tdcommons.org/dpubs_series/3670/). It improves video viewing experince on mobile phone by providing 2 seperate views: full and close-up.
 
 ## Features:
-### Add a video from Youtube
-  - Find a video in Youtube App > [Share] > [Player_Protype]
-### Add a video to the video list
-  - Launch Player_Prototype > Paste video URL > [Done]
-### Deleteing video from the video list
-  - Top right of each entry > [X]
-### Edit video title/url
-  - Long click on the entry you wish to edit > Edit > [Done] to save, [Cancel] to cancle
-### Play video (WIP) 
-  - Click on the video
-
+- Play a landscape Youtube video in portrait mode with full context and a zoomed in view
+- Play a portrait Youtube video in landscape mode with full context and a zoomed in view
+- Allow user to manage video list
 ## Installing
 1. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store
 2. Download the APK from [Releases](https://github.com/Alwin-Lin/Youtube-mobile-player/releases)
