@@ -36,37 +36,15 @@ As a user, I want to:
 ## Logs
 Use I/com.alwin.youtubemobileplayer as filter
 
-Todo: Run app according to user journy, coppy and paste here.
+Playing a Youtube Video
+![](https://user-images.githubusercontent.com/22556115/107166380-a9229d80-696a-11eb-821a-9b3911f70c9e.png)
 
-Sharing from Youtube, then deleteing entry
+Play video from the video list
 
-![](https://user-images.githubusercontent.com/22556115/104980530-9811ec80-59bb-11eb-907f-1d7540f1a9d4.png)
+![](https://user-images.githubusercontent.com/22556115/107166378-a7f17080-696a-11eb-9eae-84f1517773e7.png)
 
-Manualy entering video, then deleting entry
+Managing video list
 
-![](https://user-images.githubusercontent.com/22556115/104980527-96e0bf80-59bb-11eb-90fd-6bdf6e95b815.png)
-## Project structure
-### MainActivity
-- Entry point of the app, main activity
-### IntentReceiver
-- Recives intent from Youtube, proccesses it, and sends to VideoList
-### videoListUI
-- VideoList
-  - Fragment class, sets up list and handels intent from addVideo and IntentReciver
-- VideoListAdapter
-  - Allows actions such as onEdit, onVideoClick
-### videoRecordUI
-- Handels adding and editing exsisting videos 
-### videoModel
-- Video class, requires a name an a url as input
-- VideoDao defines functions that allows interaction with database
-- VideoDeleteViewModel deletes videos
-- VideoAdditionViewModel adds videos
+![](https://user-images.githubusercontent.com/22556115/107166379-a88a0700-696a-11eb-860d-084f4a4ba489.png)
 
-## Continious building and continuious testing
-### What is it?
-A process using Google Cloud Platform to automaticly test and build new commits, outputs built APK and test reports.
-### What would I need?
-A google account
-Credit card for 
-### How 
+ToDo: Add log for Change video playback expirence
