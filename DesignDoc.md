@@ -16,10 +16,9 @@ As a user, I want to:
     * Delete
       - In the video list > Click on [X] > Video deleted
 4. Change video playback expirence
-ToDo: Add in table 
-  * Landscape video playback
-  * portrait video playback
-  * Change close-up central point
+    * Landscape video playback
+    * portrait video playback
+    * Change close-up central point
     
   
 ## Code flow
