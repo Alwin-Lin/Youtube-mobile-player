@@ -5,9 +5,9 @@
 ## User journey
 As a user, I want to: 
 1. Play a Youtube Video
-  - In Youtube app > [share] > Video plays and the video is saved in the play list
+  * In Youtube app > [share] > Video plays and the video is saved in the play list
 2. Play video from the video list
-  - In the video list > Click on a video > video plays
+  * In the video list > Click on a video > video plays
 3. Manage video list
     * Add
       - In the video list > Click on bottom right button > Enter name and url > [Done]
