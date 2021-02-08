@@ -20,6 +20,11 @@ As a user, I want to:
     * portrait video playback
     * Change close-up central point
     
+|               | Portrait Phone | Landscape Phone
+--------------- | -------------- | ----------------
+Portrait Video  | Play Normaly   | Left right split 
+Landscape Video | Up down split  | Play Normaly
+    
   
 ## Code flow
 - Select video from Youtube
