@@ -7,7 +7,7 @@ This player is a portotype of [Smart Content Composer](https://www.tdcommons.org
 3. Video list management
 
 Screenshots: 
-![](https://user-images.githubusercontent.com/22556115/96386132-794a5280-114d-11eb-966d-2184cf72aa0a.png)
+![](https://user-images.githubusercontent.com/22556115/96386132-794a5280-114d-11eb-966d-2184cf72aa0a.png){:height="50%" width="50%"}
 Todo: add 2 and 3
 
 ## Installing
