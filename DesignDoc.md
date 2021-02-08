@@ -9,17 +9,17 @@ As a user, I want to:
 2. Play video from the video list
   - In the video list > Click on a video > video plays
 3. Manage video list
-  3.1 Add
-    - In the video list > Click on bottom right button > Enter name and url > [Done]
-  3.2 Edit
-    - In the video list > Long click on video > edit > [Done] >
-  3.3 Delete
-    - In the video list > Click on [X] > Video deleted
+    * Add
+      - In the video list > Click on bottom right button > Enter name and url > [Done]
+    * Edit
+      - In the video list > Long click on video > edit > [Done] >
+    * Delete
+      - In the video list > Click on [X] > Video deleted
 4. Change video playback expirence
 ToDo: Add in table 
-  4.1 Landscape video playback
-  4.2 portrait video playback
-  4.3 Change close-up central point
+  * Landscape video playback
+  * portrait video playback
+  * Change close-up central point
     
   
 ## Code flow
