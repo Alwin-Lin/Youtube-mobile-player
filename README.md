@@ -7,9 +7,18 @@ This player is a portotype of [Smart Content Composer](https://www.tdcommons.org
 3. Video list management
 
 Screenshots: 
-![](https://user-images.githubusercontent.com/22556115/96386132-794a5280-114d-11eb-966d-2184cf72aa0a.png){:height="50%" width="50%"}
-Todo: add 2 and 3
 
+Landscape video on portrait mode
+
+![](https://user-images.githubusercontent.com/22556115/107168609-ab87f600-6970-11eb-9ad1-470e97af99f6.png)
+
+Portrait video on landscape mode
+
+![](https://user-images.githubusercontent.com/22556115/107168610-ac208c80-6970-11eb-9466-d44888fd9754.png)
+
+Video list:
+
+![](https://user-images.githubusercontent.com/22556115/107168906-7039f700-6971-11eb-8981-5540ab6e0856.png)
 ## Installing
 1. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store
 2. Download the APK from [Releases](https://github.com/Alwin-Lin/Youtube-mobile-player/releases){:height="50%" width="50%"}
