@@ -1,6 +1,6 @@
 # Design Documentation
 ## Software Architecture
-![](https://user-images.githubusercontent.com/22556115/107166887-30bcdc00-696c-11eb-8870-15117a9e9528.jpg)
+![](https://user-images.githubusercontent.com/22556115/107167162-f30c8300-696c-11eb-9833-fb67a1f43c7e.jpg)
 
 ## User journey
 As a user, I want to: 
