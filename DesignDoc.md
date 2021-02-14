@@ -31,7 +31,7 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
 - CUJ-1, Play from Youtube
   - Codeflow:
     
-    ![](https://user-images.githubusercontent.com/22556115/107891147-aa574b80-6ed1-11eb-8aa9-9d839ba084b2.jpg)
+    ![](https://user-images.githubusercontent.com/22556115/107891824-dd9bd980-6ed5-11eb-8acd-dbbcc5d5b55e.jpg)
   - Log:
     
     ![](https://user-images.githubusercontent.com/22556115/107890884-36687380-6ed0-11eb-8ad1-e219de63a695.png)
