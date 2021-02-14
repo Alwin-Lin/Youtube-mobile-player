@@ -22,8 +22,8 @@ As a user, I want to:
     
 |               | Portrait Phone | Landscape Phone
 --------------- | -------------- | ----------------
-Portrait Video  | Play Normaly   | Left right split 
-Landscape Video | Up down split  | Play Normaly
+Portrait Video  | 1 video        | 2 videos, right: zoomed in & left: full 
+Landscape Video | 2 videos, top: zoomed in & bottom: full | 1 video
     
   
 ## Code flow
