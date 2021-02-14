@@ -20,10 +20,10 @@ As a user, I want to:
     * portrait video playback
     * Change close-up central point
     
-|               | Portrait Phone | Landscape Phone
---------------- | -------------- | ----------------
-Portrait Video  | 1 video        | 2 videos, right: zoomed in & left: full 
-Landscape Video | 2 videos, top: zoomed in & bottom: full | 1 video
+|               | Portrait Phone                         | Landscape Phone
+--------------- | -------------------------------------  | ----------------
+Portrait Video  | 1 view                                 | 2 views, right: zoomed in & left: full 
+Landscape Video | 2 views, top: zoomed in & bottom: full | 1 view
     
   
 ## Code flow
