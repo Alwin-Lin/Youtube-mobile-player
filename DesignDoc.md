@@ -2,7 +2,7 @@
 ## Software Architecture
 ![](https://user-images.githubusercontent.com/22556115/107167162-f30c8300-696c-11eb-9833-fb67a1f43c7e.jpg)
 
-## User journey
+## CUJ
 As a user, I want to: 
 1. Play a Youtube Video
   * In Youtube app > [share] > Video plays and the video is saved in the play list
@@ -27,8 +27,10 @@ Landscape Video | 2 videos, top: zoomed in & bottom: full | 1 video
     
   
 ## Code flow
-- Select video from Youtube
+- CUJ-1, Play from Youtube
+  - Add in architechture and lable the flow here instead 
   - Youtube [Share] > IntentReciver recives and processes url > IntentReciver sends url to VideoList and PlayVideoActivity via intent > VideoList calls addVideo() > PlayVideoActivity takes url, builds mediaSource, plays video > Exit out to video list
+  - Add in log here
 - Select video from list
   - Clicks on a video > VideoList sends intent to start PlayVideoActivity > Video plays > Exit out to video list
 - Edit video on list
