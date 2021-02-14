@@ -28,30 +28,17 @@ Landscape Video | 2 videos, top: zoomed in & bottom: full | 1 video
   
 ## Code flow
 - CUJ-1, Play from Youtube
-  - Add in architechture and lable the flow here instead 
-  - Youtube [Share] > IntentReciver recives and processes url > IntentReciver sends url to VideoList and PlayVideoActivity via intent > VideoList calls addVideo() > PlayVideoActivity takes url, builds mediaSource, plays video > Exit out to video list
-  - Add in log here
-- Select video from list
-  - Clicks on a video > VideoList sends intent to start PlayVideoActivity > Video plays > Exit out to video list
-- Edit video on list
-  - Long click > VideoEditDialogFragment called > Check if video name or url is altered > If altered make changes, if not Exit out to video list
-- Manualy add video to list
-  - Add video action button clicked > VideoList sends intent, starts AddVideoActivity > User input name and url > If both are not empty, AddVideoActivity sends intent back to VideoList and exits > VideoList calls addVideo() > Video is added
-- Delete video on list
-  - The [X] button is clicked > videoDeleteViewModel.delete() called in VideoList > Video deleted
-  
+  - codeflow placehold 
+  - Log:
+    - ![](https://user-images.githubusercontent.com/22556115/107890884-36687380-6ed0-11eb-8ad1-e219de63a695.png)
+- CUJ-2, Play exsiting video from list
+  - codeflow Placehold
+  - Log: 
+    - ![](https://user-images.githubusercontent.com/22556115/107890992-d4f4d480-6ed0-11eb-803a-891edbb2bcbd.png)
+- CUJ-3, Manage video list
+  - codeflow placehold
+  - Log:
+    - ![](https://user-images.githubusercontent.com/22556115/107166379-a88a0700-696a-11eb-860d-084f4a4ba489.png)
 ## Logs
 Use I/com.alwin.youtubemobileplayer as filter
-
-Playing a Youtube Video
-![](https://user-images.githubusercontent.com/22556115/107166380-a9229d80-696a-11eb-821a-9b3911f70c9e.png)
-
-Play video from the video list
-
-![](https://user-images.githubusercontent.com/22556115/107166378-a7f17080-696a-11eb-9eae-84f1517773e7.png)
-
-Managing video list
-
-![](https://user-images.githubusercontent.com/22556115/107166379-a88a0700-696a-11eb-860d-084f4a4ba489.png)
-
 ToDo: Add log for Change video playback expirence
