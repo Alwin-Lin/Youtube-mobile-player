@@ -1,6 +1,6 @@
 # Design Documentation
 ## Software Architecture
-![](https://user-images.githubusercontent.com/22556115/107891847-045a1000-6ed6-11eb-8f63-a50c0a1ba884.jpg)
+![](https://user-images.githubusercontent.com/22556115/107891882-4be09c00-6ed6-11eb-9e23-317e4498c102.jpg)
 
 ## CUJ
 As a user, I want to: 
@@ -38,7 +38,7 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
 - CUJ-2, Play exsiting video from list
   - Codeflow
     
-    ![](https://user-images.githubusercontent.com/22556115/107891788-a88f8700-6ed5-11eb-9817-7a4e38203765.jpg)
+    ![](https://user-images.githubusercontent.com/22556115/107891879-471be800-6ed6-11eb-99d2-71255e049fe0.jpg)
   - Log: 
     
     ![](https://user-images.githubusercontent.com/22556115/107890992-d4f4d480-6ed0-11eb-803a-891edbb2bcbd.png)
