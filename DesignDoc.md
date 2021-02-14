@@ -43,6 +43,9 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
     
     ![](https://user-images.githubusercontent.com/22556115/107890992-d4f4d480-6ed0-11eb-803a-891edbb2bcbd.png)
 - CUJ-3, Manage video list
-  - codeflow placehold
+  - Codeflow
+  
+  ![](https://user-images.githubusercontent.com/22556115/107891696-24d59a80-6ed5-11eb-9793-6ff754700b84.jpg)
   - Log:
-    - ![](https://user-images.githubusercontent.com/22556115/107891365-0f5f7100-6ed3-11eb-827a-f70e3ed2fb2a.png)
+  
+   ![](https://user-images.githubusercontent.com/22556115/107891365-0f5f7100-6ed3-11eb-827a-f70e3ed2fb2a.png)
