@@ -1,6 +1,7 @@
 # Design Documentation
 ## Software Architecture
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
 ## Logs
@@ -42,6 +43,8 @@ A google account
 Credit card for 
 ### How 
 =======
+=======
+>>>>>>> 97d0b2ecb5fa92ac4dbecce3384fc453d92c8ca4
 ![](https://user-images.githubusercontent.com/22556115/107891882-4be09c00-6ed6-11eb-9e23-317e4498c102.jpg)
 
 ## CUJ
@@ -91,4 +94,7 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
   - Log:
   
    ![](https://user-images.githubusercontent.com/22556115/107891365-0f5f7100-6ed3-11eb-827a-f70e3ed2fb2a.png)
+<<<<<<< HEAD
+>>>>>>> 97d0b2ecb5fa92ac4dbecce3384fc453d92c8ca4
+=======
 >>>>>>> 97d0b2ecb5fa92ac4dbecce3384fc453d92c8ca4
