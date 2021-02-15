@@ -9,6 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alwin.youtubemobileplayer.R
 import com.google.android.material.textfield.TextInputEditText
 
+/**
+ * The activity used for adding videos
+ * Sends out intent once user fills in the name and url of video
+ */
+
 const val VIDEO_NAME = "name"
 const val VIDEO_URL = "URL"
 

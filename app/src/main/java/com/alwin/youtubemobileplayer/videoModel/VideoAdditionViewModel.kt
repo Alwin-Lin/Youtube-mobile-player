@@ -5,12 +5,13 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.alwin.youtubemobileplayer.videoModel.Video
 import com.alwin.youtubemobileplayer.videoModel.VideoDao
+import com.alwin.youtubemobileplayer.videoModel.VideoDeleteViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /** This class interacts with videoLiveData, handles the adding and deleting of data
- * The id, name, and the discription will be passed to addData
+ * The id, name, and the descriptions will be passed to addData
  */
 
 class VideoAdditionViewModel(private val videoDao: VideoDao) : ViewModel() {

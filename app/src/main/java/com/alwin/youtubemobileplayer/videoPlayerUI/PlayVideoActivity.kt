@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer
+package com.alwin.youtubemobileplayer.videoPlayerUI
 
 import android.app.Activity
 import android.content.Intent
@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.net.toUri
+import com.alwin.youtubemobileplayer.R
+import com.alwin.youtubemobileplayer.YT_VIDEO_URL
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -24,9 +26,13 @@ import com.google.android.exoplayer2.upstream.HttpDataSource
 import com.google.android.exoplayer2.util.*
 import kotlinx.android.synthetic.main.activity_play_video.*
 
+/**
+ * Takes in intent(URL), sets up ExoPlayer and it's required components
+ * Hands control over to PlayerOverlayProcessor after player is running
+ */
 
 class PlayVideoActivity: Activity(), View.OnTouchListener {
-    private val TAG = "com.alwin.youtubemobileplayer.PlayVideoActivity"
+    private val TAG = "com.alwin.youtubemobileplayer.videoPlayerUI.PlayVideoActivity"
     private var mPlayer: SimpleExoPlayer? = null
     private var playWhenReady = true
     private var currentWindow = 0
@@ -37,6 +43,8 @@ class PlayVideoActivity: Activity(), View.OnTouchListener {
     private val EXTENSION_EXTRA = "extension"
     private lateinit var playerOverlayProcessor: PlayerOverlayProcessor
     private lateinit var videoProcessingGLSurfaceView: VideoProcessingGLSurfaceView
+    private val SELECTED_POSITION = "POSITION"
+    private var position = C.TIME_UNSET
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,10 +63,10 @@ class PlayVideoActivity: Activity(), View.OnTouchListener {
         val requestSecureSurface = intent.hasExtra(DRM_SCHEME_EXTRA)
         if (requestSecureSurface && !GlUtil.isProtectedContentExtensionSupported(applicationContext)) {
             Toast.makeText(
-                    applicationContext, "he GL protected content extension is not supported", Toast.LENGTH_LONG)
+                    applicationContext, "The GL protected content extension is not supported", Toast.LENGTH_LONG)
                     .show()
+            Log.i(TAG, "The GL protected content extension is not supported")
         }
-
 
         playerOverlayProcessor = PlayerOverlayProcessor(applicationContext)
         val videoProcessingGLSurfaceView = VideoProcessingGLSurfaceView(
@@ -67,8 +75,9 @@ class PlayVideoActivity: Activity(), View.OnTouchListener {
         contentFrame.addView(videoProcessingGLSurfaceView)
         this.videoProcessingGLSurfaceView = videoProcessingGLSurfaceView
 
-
-        Log.d(TAG, String.format("SDK Ver: %d", Util.SDK_INT))
+        if (savedInstanceState != null) {
+            position = savedInstanceState.getLong(SELECTED_POSITION, C.TIME_UNSET);
+        }
     }
 
     private fun initPlayer() {
@@ -80,9 +89,15 @@ class PlayVideoActivity: Activity(), View.OnTouchListener {
         val videoProcessingGLSurfaceView = Assertions.checkNotNull(videoProcessingGLSurfaceView)
         videoProcessingGLSurfaceView.setVideoComponent(
                 Assertions.checkNotNull(mPlayer!!.getVideoComponent()))
+        if (position != C.TIME_UNSET) mPlayer!!.seekTo(position)
         mPlayer!!.prepare(buildMediaSource(), false, false)
         playerOverlayProcessor.setPlayer(mPlayer)
         Log.i(TAG, "MediaSource built, starting player")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putLong(SELECTED_POSITION, position);
     }
 
     override fun onStart() {
@@ -102,6 +117,9 @@ class PlayVideoActivity: Activity(), View.OnTouchListener {
 
     override fun onPause() {
         super.onPause()
+        if (mPlayer != null){
+            position = mPlayer!!.currentPosition
+        }
         if (Util.SDK_INT < 24) {
             releasePlayer()
         }

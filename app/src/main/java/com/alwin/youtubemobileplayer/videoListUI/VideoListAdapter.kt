@@ -11,6 +11,7 @@ import com.alwin.youtubemobileplayer.databinding.VideoItemBinding
 
 /**
  * The adapter used by the RecyclerView to display the current list of videos
+ * Defines control for [VideoList]
  */
 class VideoListAdapter(private var onEdit: (Video) -> Unit, private var onDelete: (Video) -> Unit, private var onVideoClick: (Video) -> Unit) :
         androidx.recyclerview.widget.ListAdapter<Video, VideoListAdapter.VideoListViewHolder>(VideoDiffCallback()) {

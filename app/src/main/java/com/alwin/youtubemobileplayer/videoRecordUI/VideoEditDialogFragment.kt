@@ -18,7 +18,7 @@ import com.alwin.youtubemobileplayer.videoListUI.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /**
- * Lets user add a new video, if one already exsist, it edits it
+ * Allows user to edit exciting video
  */
 
 class VideoEditDialogFragment : BottomSheetDialogFragment() {

@@ -8,9 +8,7 @@ import androidx.room.Query
 import androidx.room.Update
 
 /**
- * The Data Access Object used to retrieve and store data from/to the underlying database.
- * This API is not used directly; instead, callers should use the add_videository which calls into
- * this DAO.
+ * The Data Access Object used to retrieve and store data from/to the [VideoDatabase].
  */
 @Dao
 interface VideoDao {

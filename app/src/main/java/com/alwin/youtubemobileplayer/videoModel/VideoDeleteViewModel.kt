@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer.videoListUI
+package com.alwin.youtubemobileplayer.videoModel
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -9,6 +9,10 @@ import com.alwin.youtubemobileplayer.videoModel.Video
 import com.alwin.youtubemobileplayer.videoModel.VideoDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+/**
+ * Called when deleting video
+ */
 
 class VideoDeleteViewModel(private val videoDao: VideoDao) : ViewModel() {
     private val TAG = "com.alwin.youtubemobileplayer.VideoListModel"

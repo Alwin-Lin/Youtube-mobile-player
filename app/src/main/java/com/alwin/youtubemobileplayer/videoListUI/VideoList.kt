@@ -11,6 +11,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.alwin.youtubemobileplayer.videoPlayerUI.PlayVideoActivity
 import com.alwin.youtubemobileplayer.YT_VIDEO_NAME
 import com.alwin.youtubemobileplayer.YT_VIDEO_URL
 import com.alwin.youtubemobileplayer.videoModel.Video
@@ -19,9 +20,13 @@ import com.alwin.youtubemobileplayer.videoRecordUI.VIDEO_NAME
 import com.alwin.youtubemobileplayer.videoRecordUI.VIDEO_URL
 import com.alwin.youtubemobileplayer.videoModel.VideoDatabase
 import com.alwin.youtubemobileplayer.databinding.VideoListBinding
+import com.alwin.youtubemobileplayer.videoModel.VideoDeleteViewModel
 import kotlinx.android.synthetic.main.video_list.*
-import java.nio.file.Files.delete
 
+/**
+ * List fragment that maps functions from [VideoListAdapter] to button on [VideoList]
+ * Listens for incoming intent from [IntentReceiver] and adds them to list
+ */
 
 class VideoList : Fragment() {
     private val TAG: String = "com.alwin.youtubemobileplayer.videoList.VideoList"
@@ -31,25 +36,26 @@ class VideoList : Fragment() {
     var video: Video? = null
 
     private val adapter = VideoListAdapter(
+
             onEdit = { video ->
                 findNavController().navigate(
                         VideoListDirections.actionVideoListToVideoEntryDataFragment(video.id)
                 )
                 Log.i(TAG, "User editing entry with id = $id")
             },
+
             onDelete = { video ->
                 NotificationManagerCompat.from(requireContext()).cancel(video.id.toInt())
                 videoDeleteViewModel.delete(video)
             },
 
-            // todo: Make this send intent, should only contain the URL
             onVideoClick = { video ->
-                val sendIntent: Intent = Intent().apply {
+                val sendIntent: Intent = Intent(context, PlayVideoActivity::class.java).apply {
                     action = Intent.ACTION_SEND
                     putExtra(Intent.EXTRA_TEXT, video.videoUrl)
                     type = "text/plain"
                 }
-                Log.i(TAG, "VideoList: url sent " + video.videoUrl)
+                Log.i(TAG, "url sent " + video.videoUrl)
                 startActivity(sendIntent)
             }
     )
@@ -69,10 +75,10 @@ class VideoList : Fragment() {
 
         if (activity?.intent?.hasExtra(YT_VIDEO_URL) == true) {
             var intent = activity?.intent
-            var ytUrl = intent!!.getStringExtra(YT_VIDEO_URL)
-            var ytVideoName = intent!!.getStringExtra(YT_VIDEO_NAME)
-            Log.i(TAG,"Received $intent, adding to list")
-            addVideo(ytVideoName.toString(), ytUrl.toString())
+                var ytUrl = intent!!.getStringExtra(YT_VIDEO_URL)
+                var ytVideoName = intent!!.getStringExtra(YT_VIDEO_NAME)
+                Log.i(TAG,"Received $intent, adding to list")
+                addVideo(ytVideoName.toString(), ytUrl.toString())
         }
 
         recyclerView.adapter = adapter
@@ -99,7 +105,6 @@ class VideoList : Fragment() {
                 val videoName = data.getStringExtra(VIDEO_NAME)
                 val videoUrl = data.getStringExtra(VIDEO_URL)
                 addVideo(videoName.toString(), videoUrl.toString())
-                Log.i(TAG, "Video added, name: $videoName, url: $videoUrl")
             }
         } else if (resultCode == 0) {
             Log.i(TAG, "Return key was pressed / Video name and url are empty")

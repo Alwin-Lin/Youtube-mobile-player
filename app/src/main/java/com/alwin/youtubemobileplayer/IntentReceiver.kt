@@ -11,6 +11,11 @@ import android.widget.Toast
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
+import com.alwin.youtubemobileplayer.videoPlayerUI.PlayVideoActivity
+
+/**
+ * Receives intent from other Youtube, processes url, and plays shared video
+ */
 
 const val YT_VIDEO_NAME = "com.alwin.youtubemobileplayer.VIDEO_NAME"
 const val YT_VIDEO_URL = "com.alwin.youtubemobileplayer.VIDEO_URL"
@@ -25,7 +30,7 @@ class IntentReceiver: AppCompatActivity() {
             Intent.ACTION_SEND -> {
                 if (savedInstanceState== null && intent.type != null && "text/plain" == intent.type) {
                     handleActionSendIntent(intent)
-                } else if (savedInstanceState != null && ytUrl != null) {
+                } else if (savedInstanceState != null) {
                     getYoutubeDownloadUrl(ytUrl)
                 }
                 else {
@@ -40,7 +45,7 @@ class IntentReceiver: AppCompatActivity() {
     }
 
     private fun handleActionSendIntent(intent: Intent) {
-        var ytUrl: String = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
+        val ytUrl: String = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
         if (ytUrl.contains("://youtu.be/") || ytUrl.contains("youtube.com/watch?v=")) {
             Log.i(TAG, "Received intent with ACTION_SEND from $ytUrl")
             getYoutubeDownloadUrl(ytUrl)
@@ -49,7 +54,6 @@ class IntentReceiver: AppCompatActivity() {
             Toast.makeText(this, "URL mismatch, please share from Youtube", Toast.LENGTH_LONG)
             Log.i(TAG, "Received URL $ytUrl, cannot process")
         }
-
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -86,5 +90,9 @@ class IntentReceiver: AppCompatActivity() {
         processedYTIntent.putExtra(YT_VIDEO_URL, convYTUrl)
         Log.i(TAG, "Intent sent, $intent")
         startActivity(processedYTIntent)
+
+        val playVideo = Intent(this, PlayVideoActivity::class.java)
+        playVideo.putExtra(YT_VIDEO_URL, convYTUrl)
+        startActivity(playVideo)
     }
 }

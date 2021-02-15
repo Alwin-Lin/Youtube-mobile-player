@@ -1,57 +1,42 @@
 # Design Documentation
 ## Software Architecture
-![](https://user-images.githubusercontent.com/22556115/107167162-f30c8300-696c-11eb-9833-fb67a1f43c7e.jpg)
+![](https://user-images.githubusercontent.com/22556115/97812716-0c988300-1c38-11eb-8e17-40813dcea985.jpg)
 
-## CUJ
-As a user, I want to: 
-1. Play a Youtube Video
-  * In Youtube app > [share] > Video plays and the video is saved in the play list
-2. Play video from the video list
-  * In the video list > Click on a video > video plays
-3. Manage video list
-    * Add
-      - In the video list > Click on bottom right button > Enter name and url > [Done]
-    * Edit
-      - In the video list > Long click on video > edit > [Done] >
-    * Delete
-      - In the video list > Click on [X] > Video deleted
-4. Change video playback expirence
-    * Landscape video playback
-    * portrait video playback
-    * Change close-up central point
-    
-|               | Portrait Phone | Landscape Phone
---------------- | -------------- | ----------------
-Portrait Video  | 1 video        | 2 videos, right: zoomed in & left: full 
-Landscape Video | 2 videos, top: zoomed in & bottom: full | 1 video
-    
-  
-## Code flow
-- CUJ-1, Play from Youtube
-  - Add in architechture and lable the flow here instead 
-  - Youtube [Share] > IntentReciver recives and processes url > IntentReciver sends url to VideoList and PlayVideoActivity via intent > VideoList calls addVideo() > PlayVideoActivity takes url, builds mediaSource, plays video > Exit out to video list
-  - Add in log here
-- Select video from list
-  - Clicks on a video > VideoList sends intent to start PlayVideoActivity > Video plays > Exit out to video list
-- Edit video on list
-  - Long click > VideoEditDialogFragment called > Check if video name or url is altered > If altered make changes, if not Exit out to video list
-- Manualy add video to list
-  - Add video action button clicked > VideoList sends intent, starts AddVideoActivity > User input name and url > If both are not empty, AddVideoActivity sends intent back to VideoList and exits > VideoList calls addVideo() > Video is added
-- Delete video on list
-  - The [X] button is clicked > videoDeleteViewModel.delete() called in VideoList > Video deleted
-  
 ## Logs
-Use I/com.alwin.youtubemobileplayer as filter
+Set Locat filter to info, and the whole process should all be there
 
-Playing a Youtube Video
-![](https://user-images.githubusercontent.com/22556115/107166380-a9229d80-696a-11eb-821a-9b3911f70c9e.png)
-
-Play video from the video list
-
-![](https://user-images.githubusercontent.com/22556115/107166378-a7f17080-696a-11eb-9eae-84f1517773e7.png)
-
-Managing video list
-
-![](https://user-images.githubusercontent.com/22556115/107166379-a88a0700-696a-11eb-860d-084f4a4ba489.png)
-
-ToDo: Add log for Change video playback expirence
+## List of functions
+### MainActivity
+- Handles intent coming from Youtube and sends bundle to VideoEntryDialogFragment
+### Notifier
+- Builds the list items
+### PlayVideoFragment
+- Placeholder, going to be replaced with a working videoPlayer
+### Video
+- Data class, contains the following
+  - id 
+  - name 
+  - url
+### VideoEntryDialogFragment
+- Set up the small popup window once the floating action button is clicked
+- Adds intent to list
+### VideoEntryViewModel
+- Interacts with LiveData<>
+### VideoList
+- Sets up the list view on entry, sets onClickListener to floating button
+### VideoListAdapter
+- Defines what goes into the the list
+  - videoId
+  - nameView
+  - url
+  - thumbnail
+### ViewListModle
+  - Handels delettion of items
+  
+## Continious building and continuious testing
+### What is it?
+A process using Google Cloud Platform to automaticly test and build new commits, outputs built APK and test reports.
+### What would I need?
+A google account
+Credit card for 
+### How 

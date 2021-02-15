@@ -1,4 +1,4 @@
-package com.alwin.youtubemobileplayer
+package com.alwin.youtubemobileplayer.videoPlayerUI
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -15,11 +15,15 @@ import java.io.IOException
 import java.io.InputStream
 import javax.microedition.khronos.opengles.GL10
 
-interface VideoProcessor
+/**
+ * The VideoProcessingGLSurfaceView.VideoProcessor implemented here is an interface.
+ * This class scales incoming video and divides the screen accordingly
+ * Also handles the moving of close-up view when user taps on screen
+ */
 
 class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
 
-    private val TAG = "com.alwin.youtubemobileplayer.PlayerOverlayProcessor"
+    private val TAG = "com.alwin.youtubemobileplayer.videoPlayerUI.PlayerOverlayProcessor"
 
     private val OVERLAY_WIDTH = 512
     private val OVERLAY_HEIGHT = 256
@@ -60,6 +64,7 @@ class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
         overlayBitmap = Bitmap.createBitmap(OVERLAY_WIDTH, OVERLAY_HEIGHT, Bitmap.Config.ARGB_8888)
     }
 
+    // Initializes the processor
     override fun initialize() {
         val vertexShaderCode = loadAssetAsString(context, "bitmap_overlay_video_processor_vertex.glsl")
         val fragmentShaderCode = loadAssetAsString(context, "bitmap_overlay_video_processor_fragment.glsl")
@@ -90,7 +95,7 @@ class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
     }
 
     /**
-     * Sets values for landscapeSplit, portraitSplit, and setOffset
+     * Calculates scaling of video and set boundaries.
      * @param width screen's width in pixels
      * @param height screen's height in pixels
      */
@@ -105,7 +110,7 @@ class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
             fullVideoWidth = (fullVideoHeight * getVideoRatio()).toInt()
             fovVideoWidth = surfaceWidth - fullVideoWidth
             fovVideoHeight = (fovVideoWidth / getVideoRatio()).toInt()
-            Log.i(TAG, String.format("Landscape, " +
+            Log.i(TAG, String.format("Landscape phone, " +
                     " fullVideoHeight: %d, fullVideoWidth: %d, fovVideoWidth: %d, fovVideoHeight: %d, video ratio: %f", fullVideoHeight, fullVideoWidth, fovVideoWidth, fovVideoHeight, getVideoRatio()))
             maxOffsetY = (fullVideoWidth * getVideoRatio()).toInt() * 2
             minOffsetY = surfaceHeight - maxOffsetY
@@ -115,7 +120,7 @@ class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
             fullVideoHeight = (fullVideoWidth * getVideoRatio()).toInt()
             fovVideoHeight = surfaceHeight - fullVideoHeight
             fovVideoWidth = (fovVideoHeight / getVideoRatio()).toInt()
-            Log.i(TAG, String.format("Portrait, " +
+            Log.i(TAG, String.format("Portrait phone, " +
                     " fullVideoHeight: %d, fullVideoWidth: %d, fovVideoWidth: %d, fovVideoHeight: %d, video ratio: %f", fullVideoHeight, fullVideoWidth, fovVideoWidth, fovVideoHeight, getVideoRatio()))
             minOffsetX = (fullVideoHeight * getVideoRatio()).toInt() / 2
             maxOffsetX = surfaceWidth - minOffsetX
@@ -123,8 +128,6 @@ class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
     }
 
     private fun drawFrame(frameTexture: Int) {
-        // Draw a video frame.
-        // Run the shader program.
         val uniforms = Assertions.checkNotNull(uniforms)
         val attributes = Assertions.checkNotNull(attributes)
         GLES20.glUseProgram(program)
@@ -247,28 +250,21 @@ class PlayerOverlayProcessor : VideoProcessingGLSurfaceView.VideoProcessor {
         simpleExoPlayer = player
     }
 
-    // ToDo: Relocate log to prevent spam
     /**
      * Checks the orientation of phone and video, then splits screen if needed
      */
     override fun draw(frameTexture: Int, frameTimestampUs: Long) {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT)
         if (getVideoWidth() > getVideoHeight()) {
-            Log.i(TAG, "Landscape video")
             if (surfaceWidth > surfaceHeight) {
-                Log.i(TAG, "Landscape phone")
                 fullScreen(frameTexture)
             } else {
-                Log.i(TAG, "Portrait phone")
                 portraitSplit(frameTexture)
             }
         } else {
-            Log.i(TAG, "Portrait video")
             if (surfaceWidth > surfaceHeight) {
-                Log.i(TAG, "Landscape phone")
                 landscapeSplit(frameTexture)
             } else {
-                Log.i(TAG, "Portrait phone")
                 fullScreen(frameTexture)
             }
         }

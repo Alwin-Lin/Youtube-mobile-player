@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 /**
  * The underlying database where information about the videos is stored.
  */
-@Database(entities = arrayOf(Video::class), version = 1)
+@Database(entities = [Video::class], version = 1)
 abstract class  VideoDatabase : RoomDatabase() {
 
     abstract fun videoDao(): VideoDao

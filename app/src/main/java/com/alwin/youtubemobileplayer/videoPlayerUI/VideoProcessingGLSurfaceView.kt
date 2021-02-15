@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alwin.youtubemobileplayer
+package com.alwin.youtubemobileplayer.videoPlayerUI
 
 import android.content.Context
 import android.graphics.SurfaceTexture
@@ -118,8 +118,8 @@ class VideoProcessingGLSurfaceView(
     }
 
     private inner class VideoRenderer(private val videoProcessor: VideoProcessor?) : Renderer, VideoFrameMetadataListener {
-        private val frameAvailable: AtomicBoolean
-        private val sampleTimestampQueue: TimedValueQueue<Long>
+        private val frameAvailable: AtomicBoolean = AtomicBoolean()
+        private val sampleTimestampQueue: TimedValueQueue<Long> = TimedValueQueue()
         private var texture = 0
         private var surfaceTexture: SurfaceTexture? = null
         private var initialized = false
@@ -178,8 +178,6 @@ class VideoProcessingGLSurfaceView(
         }
 
         init {
-            frameAvailable = AtomicBoolean()
-            sampleTimestampQueue = TimedValueQueue()
             width = -1
             height = -1
         }
@@ -214,11 +212,11 @@ class VideoProcessingGLSurfaceView(
                 8,  /* depthSize= */
                 0,  /* stencilSize= */
                 0)
+
         setEGLContextFactory(
                 object : EGLContextFactory {
                     override fun createContext(egl: EGL10, display: EGLDisplay, eglConfig: EGLConfig): EGLContext {
-                        val glAttributes: IntArray
-                        glAttributes = if (requireSecureContext) {
+                        val glAttributes: IntArray = if (requireSecureContext) {
                             intArrayOf(
                                     EGL14.EGL_CONTEXT_CLIENT_VERSION,
                                     2,
@@ -237,6 +235,7 @@ class VideoProcessingGLSurfaceView(
                         egl.eglDestroyContext(display, context)
                     }
                 })
+
         setEGLWindowSurfaceFactory(
                 object : EGLWindowSurfaceFactory {
                     override fun createWindowSurface(
