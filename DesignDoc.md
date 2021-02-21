@@ -12,7 +12,7 @@ As a user, I want to:
     * Add
       - In the video list > Click on bottom right button > Enter name and url > [Done]
     * Edit
-      - In the video list > Long click on video > edit > [Done] >
+      - In the video list > Long click on video > edit > [Done]
     * Delete
       - In the video list > Click on [X] > Video deleted
 4. Change video playback expirence
