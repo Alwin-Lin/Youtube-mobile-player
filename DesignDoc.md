@@ -1,6 +1,6 @@
 # Design Documentation
 ## Software Architecture
-![](https://user-images.githubusercontent.com/22556115/107891882-4be09c00-6ed6-11eb-9e23-317e4498c102.jpg)
+![](https://user-images.githubusercontent.com/22556115/108634412-577c1780-742e-11eb-8f76-0a7145fea756.jpg)
 
 ## CUJ
 As a user, I want to: 
