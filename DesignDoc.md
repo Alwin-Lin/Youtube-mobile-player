@@ -31,21 +31,21 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
 - CUJ-1, Play from Youtube
   - Codeflow:
     
-    ![](https://user-images.githubusercontent.com/22556115/107891824-dd9bd980-6ed5-11eb-8acd-dbbcc5d5b55e.jpg)
+    ![](https://user-images.githubusercontent.com/22556115/108645799-d7bf6e80-7468-11eb-9299-fee8d15f4dba.jpg)
   - Log:
     
     ![](https://user-images.githubusercontent.com/22556115/107890884-36687380-6ed0-11eb-8ad1-e219de63a695.png)
 - CUJ-2, Play exsiting video from list
   - Codeflow
     
-    ![](https://user-images.githubusercontent.com/22556115/107891879-471be800-6ed6-11eb-99d2-71255e049fe0.jpg)
+    ![](https://user-images.githubusercontent.com/22556115/108645796-d68e4180-7468-11eb-85b6-45974c33a17a.jpg)
   - Log: 
     
     ![](https://user-images.githubusercontent.com/22556115/107890992-d4f4d480-6ed0-11eb-803a-891edbb2bcbd.png)
 - CUJ-3, Manage video list
   - Codeflow
   
-  ![](https://user-images.githubusercontent.com/22556115/107891696-24d59a80-6ed5-11eb-9793-6ff754700b84.jpg)
+  ![](https://user-images.githubusercontent.com/22556115/108645800-d7bf6e80-7468-11eb-9467-d23982c83120.jpg)
   - Log:
   
    ![](https://user-images.githubusercontent.com/22556115/107891365-0f5f7100-6ed3-11eb-827a-f70e3ed2fb2a.png)
