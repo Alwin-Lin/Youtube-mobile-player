@@ -52,15 +52,15 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
    
    
 ## Testing 
-| Type |           From       |  	To |  	Outcome
- --------------- | -------------------------------------  | ---------------- | --------
-Instremental |	Youtube |	IntentReciver |	Recive and process		
-Instremental |	IntentReciver |	VideoListUI |	AddVideo		
-Instremental |	IntentReciver |	PlayVideoAct |	Video Play		
-Instremental |	VideoListUI |	VideoListUI |	Mandually add		
-Unit |	VideoViewModel |	NA |	AddVideo		
-Unit |	VideoViewModel |	NA |	DeleteVideo		
-CUJTesting |	Case #1 |	NA |	Shared from YT		
-CUJTesting |	Case #2 |	NA |	User Input		
-CUJTesting |	Case #3 |	NA |	Add, delete, and Edit		
+| Type |           From       |  	To |  	Outcome | Status
+ --------------- | -------------------------------------  | ---------------- | -------- | -----
+Instremental |	Youtube |	IntentReciver |	Recive and process | WIP		
+Instremental |	IntentReciver |	VideoListUI |	AddVideo		| WIP
+Instremental |	IntentReciver |	PlayVideoAct |	Video Play		| WIP
+Instremental |	VideoListUI |	VideoListUI |	Mandually add		| WIP
+Unit |	VideoViewModel |	NA |	AddVideo		| WIP
+Unit |	VideoViewModel |	NA |	DeleteVideo		| WIP
+CUJTesting |	Case #1 |	NA |	Shared from YT		| WIP
+CUJTesting |	Case #2 |	NA |	User Input		| Done
+CUJTesting |	Case #3 |	NA |	Add, delete, and Edit	| Done	
 					
