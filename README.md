@@ -21,7 +21,7 @@ Video list:
 ![](https://user-images.githubusercontent.com/22556115/107168906-7039f700-6971-11eb-8981-5540ab6e0856.png)
 ## Installing
 1. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store
-2. Download the APK from [Releases](https://github.com/Alwin-Lin/Youtube-mobile-player/releases){:height="50%" width="50%"}
+2. Download the APK from [Releases](https://github.com/Alwin-Lin/Youtube-mobile-player/releases)
 3. Once the APK is downloaded, tap on the APK to install
 
 ## Known Issues
