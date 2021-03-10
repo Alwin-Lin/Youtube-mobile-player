@@ -52,8 +52,8 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
    
    
 ## Testing 
-| Type | From       |  	To | 	Outcome
- --------------- | -------------------------------------  | ----------------
+| Type |           From       |  	To |  	Outcome
+ --------------- | -------------------------------------  | ---------------- | --------
 Instremental |	Youtube |	IntentReciver |	Recive and process		
 Instremental |	IntentReciver |	VideoListUI |	AddVideo		
 Instremental |	IntentReciver |	PlayVideoAct |	Video Play		
