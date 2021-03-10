@@ -49,3 +49,18 @@ Use I/com.alwin.youtubemobileplayer as filter for logs
   - Log:
   
    ![](https://user-images.githubusercontent.com/22556115/107891365-0f5f7100-6ed3-11eb-827a-f70e3ed2fb2a.png)
+   
+   
+## Testing 
+| Type | From       |  	To | 	Outcome
+ --------------- | -------------------------------------  | ----------------
+Instremental |	Youtube |	IntentReciver	Recive and process		
+Instremental |	IntentReciver |	VideoListUI	AddVideo		
+Instremental |	IntentReciver |	PlayVideoAct	Video Play		
+Instremental |	VideoListUI |	VideoListUI	Mandually add		
+Unit |	VideoViewModel |	NA	AddVideo		
+Unit |	VideoViewModel |	NA	DeleteVideo		
+CUJTesting |	Case #1 |	NA	Shared from YT		
+CUJTesting |	Case #2 |	NA	User Input		
+CUJTesting |	Case #3 |	NA	Add, delete, and Edit		
+					
