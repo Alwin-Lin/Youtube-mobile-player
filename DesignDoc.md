@@ -60,7 +60,7 @@ Instremental |	IntentReciver |	PlayVideoAct |	Video Play		| WIP
 Instremental |	VideoListUI |	VideoListUI |	Mandually add		| WIP
 Unit |	VideoViewModel |	NA |	AddVideo		| WIP
 Unit |	VideoViewModel |	NA |	DeleteVideo		| WIP
-CUJTesting |	Case #1 |	NA |	Shared from YT		| WIP
+CUJTesting |	Case #1 |	NA |	Shared from YT		| Done
 CUJTesting |	Case #2 |	NA |	User Input		| Done
 CUJTesting |	Case #3 |	NA |	Add, delete, and Edit	| Done	
 					
